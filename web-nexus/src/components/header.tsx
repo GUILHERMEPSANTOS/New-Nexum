@@ -15,7 +15,7 @@ export default function Header() {
                 <nav className='hidden lg:block'>
                     <div className='flex gap-12 items-baseline'>
                         <div>
-                            <Image src={logo} alt='logo' width="88" className='cursor-pointer' />
+                            <a href="#"><Image src={logo} alt='logo' width="88" className='cursor-pointer' /></a>
                         </div>
                         <ul className='flex gap-10 '>
                             <li className='hover:border-b hover:text-gray-300 cursor-pointer'>
