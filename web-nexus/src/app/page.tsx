@@ -1,6 +1,5 @@
 import Banner from '@/components/banner'
 import Footer from '@/components/footer'
-import Header from '@/components/header'
 import Informations from '@/components/informations'
 import SecondBanner from '@/components/secondBanner'
 

@@ -5,6 +5,8 @@ import nexus from "../../public/logo-nexus.png"
 
 import { Button } from './ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
+import Title from './typographs/title'
+import SmallTitle from './typographs/smallTitle'
 
 export default function Informations() {
     return (
@@ -30,7 +32,7 @@ export default function Informations() {
                     <hr className='hidden lg:block h-48 border border-solid border-purple-800' />
                 </div>
                 <div className='hidden lg:block w-3/6'>
-                    <h1 className='font-bold text-2xl -tracking-tighter mb-10 md:text-4xl'>Sobre a <span className='text-purple-800'>Nexum</span></h1>
+                    <Title> Sobre a <span className='text-purple-800'>Nexum</span></Title>
                     <p className='font-medium text-xl mb-6 md:text-2xl'>A Nexum nasce com o propósito de facilitar a vida do freelancer assim como do empregador de forma onde o empregador
                         é quem buscar o freelancer e não o contrário, isso possibilita que o empregador só entre em contato com o colaborador
                         se de fato houver o interesse por seus trabalhos</p>
@@ -42,7 +44,7 @@ export default function Informations() {
             <div id='frellancer' className='px-4 mb-36 mt-14 flex flex-col items-center gap-8 md:gap-16 md:px-14 xl:flex-row'>
                 <div className='space-y-6 md:space-y-12'>
                     <h3 className='uppercase font-semibold text-xl md:text-2xl 2xl:text-3xl'>crie agora mesmo a sua conta</h3>
-                    <h1 className='font-bold text-2xl -tracking-tighter md:text-4xl 2xl:text-6xl'>Encontre o melhor da <span className='text-purple-800'>Nexum</span></h1>
+                    <Title>Encontre o melhor da <span className='text-purple-800'>Nexum</span></Title>
                     <p className='font-medium text-xl text-gray-200 md:text-2xl 2xl:text-4xl'>
                         Conecte-se a pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades
                     </p>
@@ -51,7 +53,7 @@ export default function Informations() {
                     <Card className='bg-[#101010] border-transparent shadow-sm shadow-purple-800'>
                         <CardHeader>
                             <CardContent>
-                                <h1 className='font-bold text-2xl -tracking-tighter mb-6 md:text-4xl'>Frellancer</h1>
+                                <Title>Frellancer</Title>
                                 <h3 className='font-medium text-xl text-start mb-12 md:text-2xl'>Para você que deseja encontrar o trabalho perfeito</h3>
                             </CardContent>
                             <CardFooter>
@@ -62,7 +64,7 @@ export default function Informations() {
                     <Card className='bg-[#101010] border-transparent shadow-sm shadow-purple-800'>
                         <CardHeader>
                             <CardContent>
-                                <h1 className='font-bold text-2xl -tracking-tighter mb-6 md:text-4xl'>Contratante</h1>
+                                <Title>Contratante</Title>
                                 <h3 className='font-medium text-xl text-start mb-12 md:text-2xl'>Para você que busca encontrar os melhores pofissionais</h3>
                             </CardContent>
                             <CardFooter>

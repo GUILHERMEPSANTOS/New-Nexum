@@ -1,17 +1,16 @@
 import React from 'react'
 
 import { Button } from './ui/button'
-import { CheckCircleIcon, MapPinIcon } from 'lucide-react'
 import CardApresentation from './cardApresentation'
-
-
+import TitleApresetation from './typographs/titleApresetation'
+import SubTitleApresetation from './typographs/subTitleApresetation'
 
 export default function Banner() {
     return (
         <div className='h-full flex justify-center items-center xl:justify-between px-8 mt-0'>
             <div className='flex justify-center items-center flex-col tracking-wide text-center gap-4 md:w-9/12 2xl:gap-10'>
-                <h1 className='font-bold text-4xl md:text-6xl'> <span className='text-purple-800'>Nexum</span> criado para você encontrar a <span className='text-purple-800'>conexão</span> perfeita</h1>
-                <p className='font-light text-2xl md:text-3xl'>A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades</p>
+                <TitleApresetation>  <span className='text-purple-800'>Nexum</span> criado para você encontrar a <span className='text-purple-800'>conexão</span> perfeita</TitleApresetation>
+                <SubTitleApresetation> A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades</SubTitleApresetation>
                 <h3 className='uppercase font-semibold text-lg md:text-2xl'>crie agora mesmo sua conta</h3>
                 <div className='space-x-6'>
                     <Button className='text-base font-medium tracking-wide md:p-6'>Freelancer</Button>
