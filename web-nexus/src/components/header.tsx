@@ -10,7 +10,7 @@ import { Button } from './ui/button'
 
 export default function Header() {
     return (
-        <header className="w-full h-16 bg-transparent px-8 fixed top-0 z-10">
+        <header className="w-full h-16 bg-transparent px-14 fixed top-0 z-10">
             <div className='md:flex md:justify-between md:items-center h-full' >
                 <nav className='hidden lg:block'>
                     <div className='flex gap-12 items-baseline'>
