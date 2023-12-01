@@ -9,7 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
 export default function Informations() {
     return (
         <>
-            <div className='px-4 mb-36 mt-20 md:px-0 lg:flex lg:items-center md:justify-between lg:px-1 2xl:justify-evenly'>
+            <div id='informations' className='px-4 mb-36 mt-20 md:px-0 lg:flex lg:items-center md:justify-between lg:px-1 2xl:justify-evenly'>
                 <div className='flex justify-center items-center mt-16 mb-12'>
                     <Image className='md:width="60" lg:width="180"' alt='banner' src={banner} />
                 </div>
@@ -39,7 +39,7 @@ export default function Informations() {
                     </Button>
                 </div>
             </div>
-            <div className='px-4 mb-36 mt-14 flex flex-col items-center gap-8 md:gap-16 md:px-14 xl:flex-row'>
+            <div id='frellancer' className='px-4 mb-36 mt-14 flex flex-col items-center gap-8 md:gap-16 md:px-14 xl:flex-row'>
                 <div className='space-y-6 md:space-y-12'>
                     <h3 className='uppercase font-semibold text-xl md:text-2xl 2xl:text-3xl'>crie agora mesmo a sua conta</h3>
                     <h1 className='font-bold text-2xl -tracking-tighter md:text-4xl 2xl:text-6xl'>Encontre o melhor da <span className='text-purple-800'>Nexum</span></h1>

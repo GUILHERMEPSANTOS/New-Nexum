@@ -6,7 +6,7 @@ import { FacebookIcon, Instagram, InstagramIcon, TwitterIcon } from 'lucide-reac
 
 export default function Footer() {
     return (
-        <footer className='px-12 flex flex-col gap-16'>
+        <footer id='footer' className='px-12 flex flex-col gap-16'>
             <div className='space-y-16 md:flex md:justify-between md:items-baseline'>
                 <div className='space-y-3'>
                     <h1 className='font-bold text-xl tracking-wide md:text-2xl'>SOBRE</h1>

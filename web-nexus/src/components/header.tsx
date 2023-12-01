@@ -10,19 +10,29 @@ import { Button } from './ui/button'
 
 export default function Header() {
     return (
-        <header className='w-full h-16'>
-            <div className='md:flex md:justify-between md:items-center h-full'>
+        <header className="w-full h-16 bg-transparent px-8 fixed top-0 z-10">
+            <div className='md:flex md:justify-between md:items-center h-full' >
                 <nav className='hidden lg:block'>
                     <div className='flex gap-12 items-baseline'>
                         <div>
                             <Image src={logo} alt='logo' width="88" className='cursor-pointer' />
                         </div>
                         <ul className='flex gap-10 '>
-                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>Início</li>
-                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>Sobre nós</li>
-                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>Freelancer</li>
-                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>Contratante</li>
-                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>Contato</li>
+                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>
+                                <a href="">Início</a>
+                            </li>
+                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>
+                                <a href="#informations">Sobre nós</a>
+                            </li>
+                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>
+                                <a href="#frellancer">Freelancer</a>
+                            </li>
+                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>
+                                <a href="#frellancer">Contratante</a>
+                            </li>
+                            <li className='hover:border-b hover:text-gray-300 cursor-pointer'>
+                                <a href="#footer">Contato</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -60,7 +70,7 @@ export default function Header() {
                     <Button className='hidden md:block px-6' variant="ghost">Entrar</Button>
                     <Button className='hidden md:block text-base font-medium tracking-wide px-6'>Criar conta</Button>
                 </div>
-            </div>
-        </header>
+            </div >
+        </header >
     )
 }
