@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react";
 
+import { ThemeProviderNexus } from "@/providers/themeProviderNexus";
+import AuthProivder from "@/providers/authContext";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import { ThemeProviderNexus } from "@/providers/themeProviderNexus";
-import Header from "@/components/header";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,8 +21,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="pt">
       <body className={roboto.className}>
         <ThemeProviderNexus attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          {children}
+          <AuthProivder>
+
+            {children}
+          </AuthProivder>
         </ThemeProviderNexus>
       </body>
     </html>
