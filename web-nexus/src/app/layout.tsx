@@ -1,9 +1,9 @@
-import { PropsWithChildren } from "react";
-
-import { ThemeProviderNexus } from "@/providers/themeProviderNexus";
-import AuthProivder from "@/providers/authContext";
 import type { Metadata } from "next";
+
+import { PropsWithChildren } from "react";
 import { Roboto } from "next/font/google";
+import { ThemeProviderNexum } from "@/providers/themeProviderNexum";
+
 import "./globals.css";
 
 const roboto = Roboto({
@@ -20,12 +20,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt">
       <body className={roboto.className}>
-        <ThemeProviderNexus attribute="class" defaultTheme="system" enableSystem>
-          <AuthProivder>
-
-            {children}
-          </AuthProivder>
-        </ThemeProviderNexus>
+        <ThemeProviderNexum attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProviderNexum>
       </body>
     </html>
   );
