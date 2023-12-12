@@ -5,6 +5,7 @@ import { Roboto } from "next/font/google";
 import { ThemeProviderNexum } from "@/providers/themeProviderNexum";
 
 import "./globals.css";
+import SessionProviderWrapper from "../../utils/sessionProviderWrapper";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="pt">
       <body className={roboto.className}>
         <ThemeProviderNexum attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <SessionProviderWrapper>
+            {children}
+          </SessionProviderWrapper>
         </ThemeProviderNexum>
       </body>
     </html>
