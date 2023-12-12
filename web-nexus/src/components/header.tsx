@@ -7,6 +7,7 @@ import { MenuIcon } from 'lucide-react'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
 import { Button } from './ui/button'
+import SingIn from './signIn'
 
 export default function Header() {
     return (
@@ -67,7 +68,8 @@ export default function Header() {
                     <Image src={logo} alt='logo' width="88" />
                 </nav>
                 <div className='md:flex md:gap-4'>
-                    <Button className='hidden md:block px-6' variant="ghost">Entrar</Button>
+                    <SingIn />
+                    {/* <Button className='hidden md:block px-6' variant="ghost">Entrar</Button> */}
                     <Button className='hidden md:block text-base font-medium tracking-wide px-6'>Criar conta</Button>
                 </div>
             </div >
