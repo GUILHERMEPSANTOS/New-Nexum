@@ -23,8 +23,8 @@ export const authOptions: AuthOptions = {
                 token.decoded = jwtDecode(account?.access_token || "");
                 token.access_token = account.access_token;
                 token.id_token = account.id_token;
-                token.expires_at = account.expires_at;
-                token.refresh_token = account.refresh_token;
+                token.expires_at = account.expires_at || new Date().getDate();
+                token.refresh_token = account.refresh_token || "";
 
                 return token;
             } else if (nowTimeStamp < (token?.expires_at as number)) {
@@ -39,12 +39,11 @@ export const authOptions: AuthOptions = {
         },
 
         async session({ session, token }) {
-            session.accessToken = encrypt(token.accessToken || "");
+            session.access_token = encrypt(token.access_token || "");
             session.id_token = encrypt(token.id_token || "");
 
-            // session.roles = token.decoded.realm_access.roles;
+            session.roles = token.decoded.realm_access.roles;
             // session.error = token.error;
-
             return session;
         }
     }

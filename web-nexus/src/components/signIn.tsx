@@ -14,7 +14,6 @@ async function keycloakSessionLogOut() {
 export default function SingIn() {
     const { data: session, status } = useSession();
 
-
     if (status == "loading") {
         return <div className="my-3">Loading...</div>;
     } else if (session) {
@@ -23,7 +22,7 @@ export default function SingIn() {
                 Entrar <span className="text-yellow-100">{session.user.email}</span>{" "}
                 <button
                     className="bg-blue-900 font-bold text-white py-1 px-2 rounded border border-gray-50"
-                    onClick={() => signOut({ callbackUrl: "/" })}>
+                    onClick={() => keycloakSessionLogOut().then(() => signOut({ callbackUrl: "/" }))}>
                     Sair
                 </button>
             </div >
