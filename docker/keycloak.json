@@ -334,7 +334,11 @@
       } ]
     }
   },
-  "groups" : [ ],
+  "groups" : [ {
+    "id" : "d1e161b7-b677-44f4-ac0b-2aab47de761d",
+    "name" : "freelancer",
+    "path" : "/freelancer"
+  } ],
   "defaultRole" : {
     "id" : "817c0cca-2511-427b-b5f4-05e949f9683f",
     "name" : "default-roles-new-nexum-realm",
@@ -418,7 +422,7 @@
     "requiredActions" : [ ],
     "realmRoles" : [ "default-roles-new-nexum-realm" ],
     "notBefore" : 1702334263,
-    "groups" : [ ]
+    "groups" : [ "/freelancer" ]
   } ],
   "scopeMappings" : [ {
     "clientScope" : "offline_access",
@@ -582,7 +586,7 @@
     "protocol" : "openid-connect",
     "attributes" : {
       "client.secret.creation.time" : "1702228417",
-      "post.logout.redirect.uris" : "http://localhost:3000/",
+      "post.logout.redirect.uris" : "http://localhost:3000",
       "oauth2.device.authorization.grant.enabled" : "false",
       "backchannel.logout.revoke.offline.tokens" : "false",
       "use.refresh.tokens" : "true",
@@ -933,6 +937,21 @@
         "access.token.claim" : "true",
         "claim.name" : "birthdate",
         "jsonType.label" : "String"
+      }
+    }, {
+      "id" : "c35e7cb2-92a2-4931-8509-8084210d0adc",
+      "name" : "groups",
+      "protocol" : "openid-connect",
+      "protocolMapper" : "oidc-group-membership-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "full.path" : "false",
+        "introspection.token.claim" : "true",
+        "userinfo.token.claim" : "true",
+        "multivalued" : "true",
+        "id.token.claim" : "true",
+        "access.token.claim" : "true",
+        "claim.name" : "groups"
       }
     }, {
       "id" : "71de5d08-d3fe-40d5-a21c-8a0e1ded8c09",
@@ -2360,7 +2379,15 @@
       } ]
     }
   },
-  "groups" : [ ],
+  "groups" : [ {
+    "id" : "3f576dfe-c48e-4577-8d4b-0e5af35ab3e8",
+    "name" : "contratante",
+    "path" : "/contratante"
+  }, {
+    "id" : "b26c443d-3fc5-4c59-8779-1b82ae50a59d",
+    "name" : "freelancer",
+    "path" : "/freelancer"
+  } ],
   "defaultRole" : {
     "id" : "388a6ea5-bf52-4d9e-b4bc-058fb9c52bea",
     "name" : "default-roles-master",
