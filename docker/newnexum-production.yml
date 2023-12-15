@@ -9,13 +9,13 @@ services:
     image: new-nexum-keycloak/new-nexum-keycloak:latest
     container_name: new-nexum-keycloak
     build:
-      context: "../backend/src"
-      dockerfile: "./Services/Identity/Dockerfile"
+      context: "./keycloak"
+      dockerfile: "./Dockerfile"
     command: -v start-dev --import-realm
     ports:
       - "8080:8080"
     volumes:
-      - ./keycloak:/opt/keycloak/data/import
+      - ./keycloak/volume:/opt/keycloak/data/import
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
