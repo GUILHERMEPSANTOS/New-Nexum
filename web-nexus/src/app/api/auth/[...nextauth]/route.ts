@@ -1,9 +1,9 @@
+import { AuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import KeycloakProvider from "next-auth/providers/keycloak";
+
 import { jwtDecode } from "jwt-decode";
 
-
-import { AuthOptions } from "next-auth";
 import { encrypt } from "../../../../../utils/encryption";
 
 export const authOptions: AuthOptions = {
@@ -16,15 +16,16 @@ export const authOptions: AuthOptions = {
         })
     ],
     callbacks: {
-        async jwt({ token, account }) {
-            const nowTimeStamp = Math.floor(Date.now() / 1000);
+        async jwt({ token, account, profile }) {
+            const nowTimeStamp = Math.floor(Date.now() / 1000);        
 
             if (account) {
                 token.decoded = jwtDecode(account?.access_token || "");
                 token.access_token = account.access_token;
                 token.id_token = account.id_token;
-                token.expires_at = account.expires_at;
-                token.refresh_token = account.refresh_token;
+                token.expires_at = account.expires_at || new Date().getDate();
+                token.refresh_token = account.refresh_token || "";
+                token.groups = profile?.groups || []
 
                 return token;
             } else if (nowTimeStamp < (token?.expires_at as number)) {
@@ -39,12 +40,12 @@ export const authOptions: AuthOptions = {
         },
 
         async session({ session, token }) {
-            session.accessToken = encrypt(token.accessToken || "");
-            session.id_token = encrypt(token.id_token || "");
-
-            // session.roles = token.decoded.realm_access.roles;
-            // session.error = token.error;
-
+            session.access_token = encrypt(token.access_token || "");            
+            session.id_token = encrypt(token.id_token || "");                
+            session.roles = token.decoded.realm_access.roles;
+            session.error = token.error;
+            session.groups = token.groups;
+        
             return session;
         }
     }

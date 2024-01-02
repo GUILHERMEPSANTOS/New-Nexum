@@ -11,6 +11,8 @@ RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysi
 RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:latest
-COPY --from=builder /opt/keycloak/ /opt/keycloak/
+WORKDIR /opt/keycloak
+COPY --from=builder /opt/keycloak/ .
+COPY /themes themes
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
