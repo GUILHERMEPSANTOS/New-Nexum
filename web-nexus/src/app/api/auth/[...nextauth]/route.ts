@@ -40,9 +40,8 @@ export const authOptions: AuthOptions = {
         },
 
         async session({ session, token }) {
-            session.access_token = encrypt(token.access_token || "");
-            session.id_token = encrypt(token.id_token || "");
-
+            session.access_token = encrypt(token.access_token || "");            
+            session.id_token = encrypt(token.id_token || "");                
             session.roles = token.decoded.realm_access.roles;
             session.error = token.error;
             session.groups = token.groups;
