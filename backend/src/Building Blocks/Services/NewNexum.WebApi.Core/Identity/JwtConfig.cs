@@ -24,7 +24,8 @@ namespace NewNexum.WebApi.Core.Identity
 
                  options.TokenValidationParameters = new TokenValidationParameters
                  {
-                     //ValidateAudience = true,
+                     ValidateAudience = true,
+                     ValidAudience = $"{configuration["Keycloak:audience"]}",
                      ValidateIssuer = Convert.ToBoolean($"{configuration["Keycloak:validate-issuer"]}"),                     
                      ValidateLifetime = true,
                      ValidateIssuerSigningKey = true,
