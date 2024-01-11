@@ -40,6 +40,8 @@ export const authOptions: AuthOptions = {
         },
 
         async session({ session, token }) {
+            console.log(token.access_token);
+            
             session.access_token = encrypt(token.access_token || "");            
             session.id_token = encrypt(token.id_token || "");                
             session.roles = token.decoded.realm_access.roles;
