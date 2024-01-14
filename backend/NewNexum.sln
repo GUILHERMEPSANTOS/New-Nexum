@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profile", "Profile", "{6EEA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewNexum.Profile.Domain.Tests", "tests\Services\Profile\NewNexum.Profile.Domain.Tests\NewNexum.Profile.Domain.Tests.csproj", "{F539A740-028C-4D3F-ADCA-568EDAFF8812}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E1F58D56-99F1-479F-81CC-9D28C0A1527C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewNexum.Core", "NewNexum.Core\NewNexum.Core.csproj", "{35A27E1C-9CCE-4657-B9D2-F0B094AA0136}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{F539A740-028C-4D3F-ADCA-568EDAFF8812}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F539A740-028C-4D3F-ADCA-568EDAFF8812}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F539A740-028C-4D3F-ADCA-568EDAFF8812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A27E1C-9CCE-4657-B9D2-F0B094AA0136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A27E1C-9CCE-4657-B9D2-F0B094AA0136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A27E1C-9CCE-4657-B9D2-F0B094AA0136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A27E1C-9CCE-4657-B9D2-F0B094AA0136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +72,8 @@ Global
 		{BFA77218-97FA-4CC4-8B3C-EAA584D69269} = {5B120ADC-73B5-4976-8CC4-BF58F8EEC7B9}
 		{6EEA9409-80E7-42DC-8658-B2A538EBE1CF} = {BFA77218-97FA-4CC4-8B3C-EAA584D69269}
 		{F539A740-028C-4D3F-ADCA-568EDAFF8812} = {6EEA9409-80E7-42DC-8658-B2A538EBE1CF}
+		{E1F58D56-99F1-479F-81CC-9D28C0A1527C} = {AF18E1F9-8C19-4A8B-8F1B-5AA3B92FC8AA}
+		{35A27E1C-9CCE-4657-B9D2-F0B094AA0136} = {E1F58D56-99F1-479F-81CC-9D28C0A1527C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {019E8C9A-62B2-4EDD-AF40-804E23650CC0}
