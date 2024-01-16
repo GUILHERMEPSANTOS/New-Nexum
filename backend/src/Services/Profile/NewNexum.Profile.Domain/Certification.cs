@@ -31,6 +31,18 @@ namespace NewNexum.Profile.Domain
             IssuingOrganization = issuingOrganization;
             UserId = userId;
         }
+        
+        public static Certification Create(
+            string name,
+            string issuingOrganization,
+            string userId)
+        {
+            var certification = new Certification(
+                name,
+                issuingOrganization,
+                userId);
 
+            return certification;
+        }
     }
 }
