@@ -10,7 +10,7 @@
         public ErrorType Type { get; }
 
 
-        protected Error(string code, string description, ErrorType errorType)
+        public Error(string code, string description, ErrorType errorType)
         {
             Code = code;
             Description = description;
