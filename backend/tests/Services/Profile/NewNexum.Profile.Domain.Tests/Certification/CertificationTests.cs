@@ -9,7 +9,7 @@ namespace NewNexum.Profile.Domain.CertificationTests
         {
 
             // Arrange
-            var certificate = Certification.Create(name: "Introdução ao Java", issuingOrganization: "Alura", userId: "uifjigj");
+            //var certificate = Certification.Create(name: "Introdução ao Java", issuingOrganization: "Alura", userId: "uifjigj");
 
             //Act
             
