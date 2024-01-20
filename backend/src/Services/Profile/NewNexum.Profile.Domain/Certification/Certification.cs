@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Mvc;
 using NewNexum.Core.Communication;
 using NewNexum.Core.DomainObjects;
+using NewNexum.Core.ValueObjects;
+using System.Xml.Linq;
 
 namespace NewNexum.Profile.Domain
 {
@@ -17,7 +20,7 @@ namespace NewNexum.Profile.Domain
 
         public string CredentialCode { get; private set; }
 
-        public string CredentialURL { get; private set; }
+        public Url CredentialURL { get; private set; }
 
         public DateTime? DateAdded { get; private set; }
 
@@ -30,7 +33,7 @@ namespace NewNexum.Profile.Domain
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
             string credentialCode = null,
-            string credentialURL = null,
+            Url credentialURL = null,
             DateTime? dateAdded = null,
             DateTime? updateDate = null
             ) : base()
@@ -53,7 +56,7 @@ namespace NewNexum.Profile.Domain
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
             string credentialCode = null,
-            string credentialURL = null,
+            Url credentialURL = null,
             DateTime? dateAdded = null,
             DateTime? updateDate = null
             )
@@ -73,24 +76,35 @@ namespace NewNexum.Profile.Domain
         }
 
 
-        public void Update(
-            string name,
-            string issuingOrganization,
+        public Result Update(
+            string name = null,
+            string issuingOrganization = null,
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
             string credentialCode = null,
-            string credentialURL = null)
+            Url credentialURL = null)
         {
-        
-            //Ensure.NotNull(name)
-            //Ensure.NotNull(name)
-           
-            Name = name;
-            IssuingOrganization = issuingOrganization;
+            if(dateOfIssue is not null && dateOfIssue > expirationDate)
+            {
+                return Result.Failure(CertificationErrors.DateOfIssueMustBeEarlierThanExpirationDate);
+            }
+
+            if (!string.IsNullOrEmpty(name) && name != Name)
+            {
+                Name = name;
+            }
+
+            if (!string.IsNullOrEmpty(issuingOrganization) && issuingOrganization != IssuingOrganization)
+            {
+                IssuingOrganization = issuingOrganization;
+            }
+            
             DateOfIssue = dateOfIssue;
             ExpirationDate = expirationDate;
             CredentialCode = credentialCode;
             CredentialURL = credentialURL;
+
+            return Result.Success();
         }
     }
 }

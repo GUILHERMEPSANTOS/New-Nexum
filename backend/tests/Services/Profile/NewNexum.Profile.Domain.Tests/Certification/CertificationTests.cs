@@ -1,4 +1,7 @@
-﻿using NewNexum.Core.Communication;
+﻿using Bogus;
+using Bogus.Extensions.UnitedKingdom;
+using NewNexum.Core.Communication;
+using NewNexum.Core.ValueObjects;
 
 namespace NewNexum.Profile.Domain.CertificationTests
 {
@@ -29,16 +32,17 @@ namespace NewNexum.Profile.Domain.CertificationTests
             // Arrange 
             var certificate = Certification.Create(name: "Introdução ao Java", issuingOrganization: "Alura", userId: "userId");
             var date = DateTime.UtcNow;
+            var faker = new Faker();               
+            //Act;
+            var result = certificate.Update(name: null,
+                                            issuingOrganization: null,
+                                            dateOfIssue: date,
+                                            expirationDate: date.AddDays(-20),
+                                            credentialCode: "code",
+                                            credentialURL: Url.Create(faker.Internet.Url()).Value);
 
-            //Assert &&  Act
-            Assert.Throws<Exception>(
-                () => certificate.Update(
-                        name: null,
-                        issuingOrganization: null,
-                        dateOfIssue: date,
-                        expirationDate: date,
-                        credentialCode: "code",
-                        credentialURL: "Teste dev.io"));
+            //Assert
+            Assert.Equal(CertificationErrors.DateOfIssueMustBeEarlierThanExpirationDate, result.Error);
         }
     }
 }
