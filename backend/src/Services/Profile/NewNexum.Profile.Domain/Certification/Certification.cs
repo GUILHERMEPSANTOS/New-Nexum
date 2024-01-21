@@ -2,12 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using NewNexum.Core.Communication;
 using NewNexum.Core.DomainObjects;
 using NewNexum.Core.ValueObjects;
+using System.Security.Claims;
 using System.Xml.Linq;
 
 namespace NewNexum.Profile.Domain
 {
     public class Certification : Entity
     {
+
         public string UserId { get; private set; }
 
         public string Name { get; private set; }
@@ -33,10 +35,7 @@ namespace NewNexum.Profile.Domain
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
             string credentialCode = null,
-            Url credentialURL = null,
-            DateTime? dateAdded = null,
-            DateTime? updateDate = null
-            ) : base()
+            Url credentialURL = null) : base()
         {
             UserId = userId;
             Name = name;
@@ -45,8 +44,8 @@ namespace NewNexum.Profile.Domain
             ExpirationDate = expirationDate;
             CredentialCode = credentialCode;
             CredentialURL = credentialURL;
-            DateAdded = dateAdded;
-            UpdateDate = updateDate;
+            DateAdded = DateTime.UtcNow;
+            UpdateDate = DateTime.UtcNow;
         }
 
         public static Certification Create(
@@ -56,10 +55,7 @@ namespace NewNexum.Profile.Domain
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
             string credentialCode = null,
-            Url credentialURL = null,
-            DateTime? dateAdded = null,
-            DateTime? updateDate = null
-            )
+            Url credentialURL = null)
         {
             var certification = new Certification(
                 userId,
@@ -68,9 +64,7 @@ namespace NewNexum.Profile.Domain
                 dateOfIssue,
                 expirationDate,
                 credentialCode,
-                credentialURL,
-                dateAdded,
-                updateDate);
+                credentialURL);            
 
             return certification;
         }
@@ -103,6 +97,7 @@ namespace NewNexum.Profile.Domain
             ExpirationDate = expirationDate;
             CredentialCode = credentialCode;
             CredentialURL = credentialURL;
+            UpdateDate = DateTime.UtcNow;
 
             return Result.Success();
         }
