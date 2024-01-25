@@ -6,8 +6,6 @@ namespace NewNexum.Profile.Application.Certification.Commands.CreateCertificatio
 {
     public class CreateCertificationCommand : ICommand<Result>
     {
-        public string UserId { get; private set; }
-
         public string Name { get; private set; }
 
         public string IssuingOrganization { get; private set; }
