@@ -21,6 +21,7 @@ namespace NewNexum.Core.Communication
             IsSuccess = isSuccess;
             Error = error;
         }
+
         public static Result Success() => new(true, Error.None);
 
         public static Result<TValue> Success<TValue>(TValue value) => new(value: value, isSuccess: true, error: Error.None);
