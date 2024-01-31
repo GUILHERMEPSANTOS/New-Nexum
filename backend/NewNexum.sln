@@ -41,6 +41,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewNexum.Profile.Applicatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewNexum.Profile.Persistence", "src\Services\Profile\NewNexum.Profile.Persistence\NewNexum.Profile.Persistence.csproj", "{BC6AD539-3B0B-4A29-BCA4-DF131ECDC2C4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{78D6A6BB-2B41-4F79-B759-3B70527F7839}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewNexum.Infra.Database", "src\Infrastructure\NewNexum.Infra.Database\NewNexum.Infra.Database.csproj", "{C8408805-BC18-4C84-AC41-B4E630BDC1E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,10 @@ Global
 		{BC6AD539-3B0B-4A29-BCA4-DF131ECDC2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC6AD539-3B0B-4A29-BCA4-DF131ECDC2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC6AD539-3B0B-4A29-BCA4-DF131ECDC2C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8408805-BC18-4C84-AC41-B4E630BDC1E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8408805-BC18-4C84-AC41-B4E630BDC1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8408805-BC18-4C84-AC41-B4E630BDC1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8408805-BC18-4C84-AC41-B4E630BDC1E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +109,8 @@ Global
 		{ED5E7A41-61E9-4548-817C-0EE5849DE2DE} = {77334261-60C5-4B11-93D0-15A991C1DA8F}
 		{48C23D95-DAAF-4B34-99A8-CFC5E557C89B} = {B417EA0E-0366-41A7-9FEF-5D56C157BC54}
 		{BC6AD539-3B0B-4A29-BCA4-DF131ECDC2C4} = {B417EA0E-0366-41A7-9FEF-5D56C157BC54}
+		{78D6A6BB-2B41-4F79-B759-3B70527F7839} = {8A997927-3D29-4B5C-B2AE-C11FD7409FD2}
+		{C8408805-BC18-4C84-AC41-B4E630BDC1E7} = {78D6A6BB-2B41-4F79-B759-3B70527F7839}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {019E8C9A-62B2-4EDD-AF40-804E23650CC0}

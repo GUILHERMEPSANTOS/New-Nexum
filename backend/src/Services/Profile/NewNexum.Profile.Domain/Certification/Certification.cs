@@ -7,9 +7,8 @@ using System.Xml.Linq;
 
 namespace NewNexum.Profile.Domain
 {
-    public class Certification : Entity
+    public class Certification : AggregateRoot
     {
-
         public string UserId { get; private set; }
 
         public string Name { get; private set; }
