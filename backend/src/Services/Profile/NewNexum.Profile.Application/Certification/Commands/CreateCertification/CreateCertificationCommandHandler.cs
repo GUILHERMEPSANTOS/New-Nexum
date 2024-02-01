@@ -27,21 +27,19 @@ namespace NewNexum.Profile.Application.Certification.Commands.CreateCertificatio
                 return Result.Failure(credentialUrl.Error);
             }
 
-            if (request.DateOfIssue is not null
-                && request.ExpirationDate is not null
-                && request.DateOfIssue > request.ExpirationDate)
+            if (CheckDateOfIssueIsBeforeExpirationDate(request))
             {
                 return Result.Failure(CertificationErrors.DateOfIssueMustBeEarlierThanExpirationDate);
             }
 
             var certification = Domain.Certification.Create(
-                userId: "ainda vou ver", 
+                userId: "ainda vou ver",
                 name: request.Name,
                 issuingOrganization: request.IssuingOrganization,
                 dateOfIssue: request.DateOfIssue,
                 expirationDate: request.ExpirationDate,
                 credentialCode: request.CredentialCode,
-                credentialURL: credentialUrl.Value              
+                credentialURL: credentialUrl.Value
             );
 
             _certificationRepository.Insert(certification);
@@ -51,12 +49,17 @@ namespace NewNexum.Profile.Application.Certification.Commands.CreateCertificatio
             return Result.Success();
         }
 
-        public Result<Url> ValidateAndCreateUri(string credentialUrl)
+        private Result<Url> ValidateAndCreateUri(string credentialUrl)
         {
             if (string.IsNullOrEmpty(credentialUrl))
                 return Result.Success<Url>(default);
 
             return Url.Create(credentialUrl);
         }
+
+        private bool CheckDateOfIssueIsBeforeExpirationDate(CreateCertificationCommand request) 
+            => request.DateOfIssue is not null
+                && request.ExpirationDate is not null
+                && request.DateOfIssue > request.ExpirationDate;
     }
 }
