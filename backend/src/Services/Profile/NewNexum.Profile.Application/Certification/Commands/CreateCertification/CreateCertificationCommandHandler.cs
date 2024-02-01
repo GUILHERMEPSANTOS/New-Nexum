@@ -16,7 +16,7 @@ namespace NewNexum.Profile.Application.Certification.Commands.CreateCertificatio
         {
             _certificationRepository = certificationRepository;
             _unitOfWork = unitOfWork;
-        }
+        } 
 
         public async Task<Result> Handle(CreateCertificationCommand request, CancellationToken cancellationToken)
         {
