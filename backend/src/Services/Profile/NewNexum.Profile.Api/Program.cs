@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using NewNexum.Profile.Api.Configurations;
+using NewNexum.Profile.Persistence;
 using NewNexum.WebApi.Core.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddAuthConfiguration(builder.Configuration);
 builder.Services.AddCorsConfiguration();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(""));
 
 var app = builder.Build();
 

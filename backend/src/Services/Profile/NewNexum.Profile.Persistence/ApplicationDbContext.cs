@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NewNexum.Core.DomainObjects;
+using NewNexum.Core.ValueObjects;
 using NewNexum.Infra.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+using NewNexum.Profile.Domain;
 
 namespace NewNexum.Profile.Persistence
 {
     public sealed class ApplicationDbContext : DbContext, IDbContext
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options) { }
+        public DbSet<Certification> Certifications { get; set; }
+
+        public ApplicationDbContext(DbContextOptions options) : base(options) { }        
+
+        public new DbSet<TEntity> Set<TEntity>()
+            where TEntity : Entity
+            => base.Set<TEntity>();
 
         public void Insert<TEntity>(TEntity entity)
             where TEntity : Entity
@@ -22,6 +23,7 @@ namespace NewNexum.Profile.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
