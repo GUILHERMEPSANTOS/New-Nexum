@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Building Blocks\Services\NewNexum.WebApi.Core\NewNexum.WebApi.Core.csproj" />
+		<ProjectReference Include="..\NewNexum.Profile.Application\NewNexum.Profile.Application.csproj" />
 		<ProjectReference Include="..\NewNexum.Profile.Persistence\NewNexum.Profile.Persistence.csproj" />
 	</ItemGroup>
 

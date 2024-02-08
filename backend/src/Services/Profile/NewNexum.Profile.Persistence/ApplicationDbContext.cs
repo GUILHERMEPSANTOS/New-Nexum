@@ -7,9 +7,7 @@ using NewNexum.Profile.Domain;
 namespace NewNexum.Profile.Persistence
 {
     public sealed class ApplicationDbContext : DbContext, IDbContext
-    {
-        public DbSet<Certification> Certifications { get; set; }
-
+    {       
         public ApplicationDbContext(DbContextOptions options) : base(options) { }        
 
         public new DbSet<TEntity> Set<TEntity>()

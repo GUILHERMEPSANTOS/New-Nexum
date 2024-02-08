@@ -12,7 +12,7 @@ using NewNexum.Profile.Persistence;
 namespace NewNexum.Profile.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240203145806_Certification")]
+    [Migration("20240204131302_Certification")]
     partial class Certification
     {
         /// <inheritdoc />
