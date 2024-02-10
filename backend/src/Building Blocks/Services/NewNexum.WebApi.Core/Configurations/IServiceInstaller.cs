@@ -5,6 +5,6 @@ namespace NewNexum.WebApi.Core.Configurations
 {
     public interface IServiceInstaller
     {
-        void Install(IServiceCollection services, IConfiguration configuration);
+        void Install(ref IServiceCollection services, IConfiguration configuration);
     }
 }

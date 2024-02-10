@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace NewNexum.Profile.Persistence
+namespace NewNexum.Profile.Application
 {
     public static class AssemblyReference
     {

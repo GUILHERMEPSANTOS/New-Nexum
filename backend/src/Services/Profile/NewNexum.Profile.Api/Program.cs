@@ -1,18 +1,18 @@
-using Microsoft.EntityFrameworkCore;
-using NewNexum.Profile.Api.Configurations;
-using NewNexum.Profile.Persistence;
-using NewNexum.WebApi.Core.Identity;
+using NewNexum.Profile.Api;
+using NewNexum.WebApi.Core.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddAuthConfiguration(builder.Configuration);
-builder.Services.AddCorsConfiguration();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(""));
 
-var app = builder.Build();
+builder.Services.InstallServices(builder.Configuration,
+    NewNexum.WebApi.Core.AssemblyReference.Assembly,
+    AssemblyReference.Assembly
+);
+
+WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -22,11 +22,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCorsConfiguration();
+app.UseCors("All");
 
 app.UseRouting();
 
-app.UseAuthConfiguration();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

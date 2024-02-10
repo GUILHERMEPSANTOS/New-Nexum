@@ -1,10 +1,11 @@
+using NewNexum.WebApi.Core.Configurations;
 using System;
 
 namespace NewNexum.Profile.Api.Configurations
 {
-    public static class CorsConfig
-    {
-        public static IServiceCollection AddCorsConfiguration(this IServiceCollection services)
+    public class CorsServiceInstaller : IServiceInstaller
+    {   
+        public void Install(ref IServiceCollection services, IConfiguration configuration)
         {
             services.AddCors(options =>
             {
@@ -16,15 +17,6 @@ namespace NewNexum.Profile.Api.Configurations
                         .AllowAnyHeader();
                 });
             });
-
-            return services;
-        }
-
-        public static WebApplication UseCorsConfiguration(this WebApplication app)
-        {
-            app.UseCors("All");
-
-            return app;
         }
     }
 }

@@ -8,16 +8,16 @@ namespace NewNexum.WebApi.Core.Configurations
     {
         public static IServiceCollection InstallServices(this IServiceCollection services
               , IConfiguration configuration
-              , Assembly[] assemblies)
+              ,params Assembly[] assemblies)
         {
-            var serviceInstallers = assemblies.SelectMany(a => a.DefinedTypes)
-                   .Where(IsAssignableToType<IServiceInstaller>)
-                   .Select(Activator.CreateInstance)
-                   .Cast<IServiceInstaller>();
-
+            var serviceInstallers = assemblies.SelectMany(assembly =>  assembly.DefinedTypes)
+                    .Where(IsAssignableToType<IServiceInstaller>)
+                    .Select(Activator.CreateInstance)
+                    .Cast<IServiceInstaller>();
+          
             foreach (var serviceInstaller in serviceInstallers)
             {
-                serviceInstaller.Install(services, configuration);
+                serviceInstaller.Install(ref services, configuration);
             }
 
             return services;
@@ -28,7 +28,6 @@ namespace NewNexum.WebApi.Core.Configurations
             return typeof(T).IsAssignableFrom(typeInfo) &&
               !typeInfo.IsInterface &&
               !typeInfo.IsAbstract;
-        }
-
+        }        
     }
 }

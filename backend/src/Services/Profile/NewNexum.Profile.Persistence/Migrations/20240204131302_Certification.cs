@@ -16,7 +16,7 @@ namespace NewNexum.Profile.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullab le: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     IssuingOrganization = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     DateOfIssue = table.Column<DateTime>(type: "datetime2", nullable: true),
