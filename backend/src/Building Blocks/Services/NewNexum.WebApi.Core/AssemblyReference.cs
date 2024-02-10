@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace NewNexum.Profile.Persistence
+namespace NewNexum.WebApi.Core
 {
     public static class AssemblyReference
     {

@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace NewNexum.WebApi.Core.Identity
+namespace NewNexum.WebApi.Core.Configurations
 {
-    public static class JwtConfig
+    public class JwtServiceInstaller : IServiceInstaller
     {
-        public static IServiceCollection AddAuthConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public void Install(ref IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(options =>
             {
@@ -26,21 +25,11 @@ namespace NewNexum.WebApi.Core.Identity
                  {
                      ValidateAudience = true,
                      ValidAudience = $"{configuration["Keycloak:audience"]}",
-                     ValidateIssuer = Convert.ToBoolean($"{configuration["Keycloak:validate-issuer"]}"),                     
+                     ValidateIssuer = Convert.ToBoolean($"{configuration["Keycloak:validate-issuer"]}"),
                      ValidateLifetime = true,
                      ValidateIssuerSigningKey = true,
                  };
              });
-
-            return services;
-        }
-
-        public static WebApplication UseAuthConfiguration(this WebApplication app)
-        {
-            app.UseAuthentication();
-            app.UseAuthorization();
-
-            return app;
         }
     }
 }

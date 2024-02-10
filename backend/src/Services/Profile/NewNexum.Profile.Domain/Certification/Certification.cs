@@ -21,11 +21,21 @@ namespace NewNexum.Profile.Domain
 
         public string CredentialCode { get; private set; }
 
-        public Url CredentialURL { get; private set; }
+        public Url Url { get; private set; }
 
         public DateTime? DateAdded { get; private set; }
 
         public DateTime? UpdateDate { get; private set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Certification"/> class.
+        /// </summary>
+        /// <remarks>
+        /// Required by EF Core.
+        /// </remarks>
+        private Certification()
+        {
+        }
 
         private Certification(
             string userId,
@@ -42,7 +52,7 @@ namespace NewNexum.Profile.Domain
             DateOfIssue = dateOfIssue;
             ExpirationDate = expirationDate;
             CredentialCode = credentialCode;
-            CredentialURL = credentialURL;
+            Url = credentialURL;
             DateAdded = DateTime.UtcNow;
             UpdateDate = DateTime.UtcNow;
         }
@@ -95,7 +105,7 @@ namespace NewNexum.Profile.Domain
             DateOfIssue = dateOfIssue;
             ExpirationDate = expirationDate;
             CredentialCode = credentialCode;
-            CredentialURL = credentialURL;
+            Url = credentialURL;
             UpdateDate = DateTime.UtcNow;
 
             return Result.Success();

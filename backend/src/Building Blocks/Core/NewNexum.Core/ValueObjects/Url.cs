@@ -4,14 +4,15 @@ using NewNexum.Core.DomainObjects;
 
 namespace NewNexum.Core.ValueObjects
 {
+    
     public class Url : ValueObject
     {
+        public string Value { get; private set; }
+        
         private Url(string value)
         {
             Value = value;
         }
-
-        private string Value {  get; }
 
         public static Result<Url> Create(string url)
         {
@@ -27,7 +28,8 @@ namespace NewNexum.Core.ValueObjects
 
             return new Url(url);
         }
-
+      
+        public static implicit operator string(Url url) => url.Value;
 
         public override IEnumerable<object> GetAtomicValues()
         {

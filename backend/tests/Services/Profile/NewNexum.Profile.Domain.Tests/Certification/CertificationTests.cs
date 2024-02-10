@@ -20,7 +20,7 @@ namespace NewNexum.Profile.Domain.CertificationTests
             Assert.Contains("Introdução ao Java", certificate.Name);
             Assert.Contains("Alura", certificate.IssuingOrganization);
             Assert.Contains("userId", certificate.UserId);
-            Assert.Null(certificate.CredentialURL);
+            Assert.Null(certificate.Url);
             Assert.NotNull(certificate.DateAdded);
             Assert.NotNull(certificate.UpdateDate);
             Assert.Null(certificate.DateOfIssue);
