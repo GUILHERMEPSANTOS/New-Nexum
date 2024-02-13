@@ -8,7 +8,8 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Building Blocks\Core\NewNexum.Core\NewNexum.Core.csproj" />
-		<ProjectReference Include="..\..\..\Infrastructure\NewNexum.Infra.Database\NewNexum.Infra.Database.csproj" />
+		<ProjectReference Include="..\..\..\Building Blocks\Infrastructure\NewNexum.Infra.Database\NewNexum.Infra.Database.csproj" />
+		<ProjectReference Include="..\..\..\Building Blocks\Infrastructure\NewNexum.WebApi.Core\NewNexum.WebApi.Core.csproj" />		
 		<ProjectReference Include="..\NewNexum.Profile.Domain\NewNexum.Profile.Domain.csproj" />
 	</ItemGroup>
 
