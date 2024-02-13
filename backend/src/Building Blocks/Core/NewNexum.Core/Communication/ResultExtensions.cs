@@ -49,6 +49,7 @@ public static class ResultExtensions
             => type switch
             {
                 ErrorType.Failure => StatusCodes.Status400BadRequest,
+                ErrorType.Validation => StatusCodes.Status400BadRequest,
                 ErrorType.NotFound => StatusCodes.Status404NotFound,
                 ErrorType.Conflict => StatusCodes.Status409Conflict,
                 _ => StatusCodes.Status500InternalServerError,
@@ -60,6 +61,7 @@ public static class ResultExtensions
                 ErrorType.Failure => "Bad Request",
                 ErrorType.NotFound => "Not Found",
                 ErrorType.Conflict => "Conflict",
+                ErrorType.Validation => "Validation",
                 _ => "Internal Server Error",
             };
     }
