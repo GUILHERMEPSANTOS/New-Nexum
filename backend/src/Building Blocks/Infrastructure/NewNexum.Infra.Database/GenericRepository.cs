@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace NewNexum.Infra.Database
 {
-    public abstract class GenericRepository<TEntity>
-        where TEntity : Entity
+    public abstract class GenericRepository<TAggregateRoot>
+        where TAggregateRoot : AggregateRoot
     {
         private readonly IDbContext DbContext;
 
         protected GenericRepository(IDbContext dbContext) => DbContext = dbContext;
 
-        public void Insert(TEntity entity) => DbContext.Insert(entity);
+        public void Insert(TAggregateRoot entity) => DbContext.Insert(entity);
     }
 }
