@@ -1,4 +1,7 @@
-﻿using NewNexum.WebApi.Core.Configurations;
+﻿using NewNexum.Core.Behaviors;
+using NewNexum.WebApi.Core.Configurations;
+using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 
 namespace NewNexum.Profile.Api.Configurations
 {
@@ -9,7 +12,10 @@ namespace NewNexum.Profile.Api.Configurations
             services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssemblies(Application.AssemblyReference.Assembly);
+                config.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
             });
+
+            services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
         }
     }
 }

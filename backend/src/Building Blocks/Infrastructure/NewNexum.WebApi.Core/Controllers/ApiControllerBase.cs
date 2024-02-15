@@ -1,8 +1,8 @@
-﻿using API.Extensions;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewNexum.Core.Communication;
+using NewNexum.Core.Extensions;
 using NewNexum.WebApi.Core.Contracts;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,8 @@ using NewNexum.Core.Communication;
 using NewNexum.Profile.Api.Contracts;
 using NewNexum.Profile.Application.Certification.Commands.CreateCertification;
 using NewNexum.WebApi.Core.Controllers;
-using API.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using NewNexum.Core.Extensions;
 
 namespace NewNexum.Profile.Api.Controllers
 {
@@ -18,6 +19,7 @@ namespace NewNexum.Profile.Api.Controllers
         {
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> RegisterCertification(RegisterCertificationRequest request)
             => await Result.Create(request)

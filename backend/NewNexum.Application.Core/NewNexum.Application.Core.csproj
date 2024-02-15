@@ -11,8 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Building Blocks\Core\NewNexum.Core\NewNexum.Core.csproj" />
-    <ProjectReference Include="..\NewNexum.Profile.Domain\NewNexum.Profile.Domain.csproj" />
+    <ProjectReference Include="..\src\Building Blocks\Core\NewNexum.Core\NewNexum.Core.csproj" />
   </ItemGroup>
 
 </Project>

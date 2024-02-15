@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using NewNexum.Core.Communication;
 
-namespace API.Extensions;
+namespace NewNexum.Core.Extensions;
 
 public static class ResultExtensions
 {
@@ -37,15 +36,37 @@ public static class ResultExtensions
             throw new InvalidOperationException("");
         }
 
-        return new()
+        return result switch
         {
-            Title = GetTitle(result.Error.Type),
-            Type = result.Error.Code,
-            Detail = result.Error.Description,
-            Status = GetStatusCode(result.Error.Type),
+            { IsSuccess: true } => throw new InvalidOperationException(),
+            IValidationResult validationResult =>
+                CreateProblemDetails(
+                    GetTitle(IValidationResult.Error.Type),
+                    GetStatusCode(IValidationResult.Error.Type),
+                    result.Error,
+                    validationResult.Errors),
+            _ => CreateProblemDetails(
+                    GetTitle(result.Error.Type),
+                    GetStatusCode(result.Error.Type),
+                    result.Error)
         };
+    }
 
-        static int GetStatusCode(ErrorType type)
+    static ProblemDetails CreateProblemDetails(
+            string title,
+            int status,
+            Error error,
+            Error[]? errors = null) =>
+            new()
+            {
+                Title = title,
+                Type = error.Code,
+                Detail = error.Description,
+                Status = status,
+                Extensions = { { nameof(errors), errors } }
+            };
+
+    static int GetStatusCode(ErrorType type)
             => type switch
             {
                 ErrorType.Failure => StatusCodes.Status400BadRequest,
@@ -55,14 +76,13 @@ public static class ResultExtensions
                 _ => StatusCodes.Status500InternalServerError,
             };
 
-        static string GetTitle(ErrorType type)
-            => type switch
-            {
-                ErrorType.Failure => "Bad Request",
-                ErrorType.NotFound => "Not Found",
-                ErrorType.Conflict => "Conflict",
-                ErrorType.Validation => "Validation",
-                _ => "Internal Server Error",
-            };
-    }
+    static string GetTitle(ErrorType type)
+        => type switch
+        {
+            ErrorType.Failure => "Bad Request",
+            ErrorType.NotFound => "Not Found",
+            ErrorType.Conflict => "Conflict",
+            ErrorType.Validation => "Validation",
+            _ => "Internal Server Error",
+        };
 }
