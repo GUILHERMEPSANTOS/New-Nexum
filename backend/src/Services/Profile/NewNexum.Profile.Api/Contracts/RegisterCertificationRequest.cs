@@ -1,8 +1,8 @@
 ﻿namespace NewNexum.Profile.Api.Contracts
 {
     public record RegisterCertificationRequest(
-        string? Name,               //Para teste
-        string? IssuingOrganization,//Para teste
+        string Name,               
+        string IssuingOrganization,
         DateTime? DateOfIssue,
         DateTime? ExpirationDate,
         string CredentialCode,
