@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Authentication;
 using NewNexum.Profile.Api;
+using NewNexum.WebApi.Core.Authentication.Claims;
 using NewNexum.WebApi.Core.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var configuration = builder.Configuration;
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -11,6 +15,8 @@ builder.Services.InstallServices(builder.Configuration,
     NewNexum.WebApi.Core.AssemblyReference.Assembly,
     AssemblyReference.Assembly
 );
+
+builder.Services.AddTransient<IClaimsTransformation>(_ => new KeycloakRolesClaimsTransformation(configuration["Keycloak:audience"] ?? ""));
 
 WebApplication app = builder.Build();
 
