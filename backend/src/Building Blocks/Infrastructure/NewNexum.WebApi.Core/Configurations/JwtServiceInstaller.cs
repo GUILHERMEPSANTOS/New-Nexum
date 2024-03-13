@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens; 
 
 namespace NewNexum.WebApi.Core.Configurations
 {
     public class JwtServiceInstaller : IServiceInstaller
     {
         public void Install(ref IServiceCollection services, IConfiguration configuration)
-        {
+        {            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

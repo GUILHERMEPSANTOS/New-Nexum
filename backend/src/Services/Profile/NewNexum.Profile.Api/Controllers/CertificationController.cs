@@ -18,8 +18,7 @@ namespace NewNexum.Profile.Api.Controllers
         public CertificationController(IMediator mediator) : base(mediator)
         {
         }
-
-        [AllowAnonymous]
+        
         [HttpPost]
         public async Task<IActionResult> RegisterCertification(RegisterCertificationRequest request)
             => await Result.Create(request)

@@ -20,14 +20,14 @@ namespace NewNexum.WebApi.Core.Authentication.Claims
 
             if (result.Identity is not ClaimsIdentity identiy)
             {
-                return Task.FromResult(principal);
+                return Task.FromResult(result);
             }
 
             var resourceAccessValue = principal.FindFirst("resource_access")?.Value;
 
             if (string.IsNullOrEmpty(resourceAccessValue))
             {
-                return Task.FromResult(principal);
+                return Task.FromResult(result);
             }
 
             using var resourceAccess = JsonDocument.Parse(resourceAccessValue);
@@ -40,16 +40,14 @@ namespace NewNexum.WebApi.Core.Authentication.Claims
             foreach (var role in clientRoles.EnumerateArray())
             {
                 var value = role.GetString();
-               
+
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     identiy.AddClaim(new Claim(ClaimTypes.Role, value));
                 }
             }
 
-            principal.AddIdentity(identiy);
-
-            return Task.FromResult(principal);
+            return Task.FromResult(result);
         }
     }
 }

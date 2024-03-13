@@ -16,6 +16,8 @@ namespace NewNexum.Profile.Api.Configurations
             });
 
             services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }
 }
