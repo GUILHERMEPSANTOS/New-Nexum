@@ -16,8 +16,6 @@ builder.Services.InstallServices(builder.Configuration,
     AssemblyReference.Assembly
 );
 
-builder.Services.AddTransient<IClaimsTransformation>(_ => new KeycloakRolesClaimsTransformation(configuration["Keycloak:audience"] ?? ""));
-
 WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
