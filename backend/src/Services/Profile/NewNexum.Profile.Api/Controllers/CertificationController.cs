@@ -6,18 +6,17 @@ using NewNexum.Core.Communication;
 using NewNexum.Profile.Api.Contracts;
 using NewNexum.Profile.Application.Certification.Commands.CreateCertification;
 using NewNexum.WebApi.Core.Controllers;
-using Microsoft.AspNetCore.Authorization;
 using NewNexum.Core.Extensions;
 
 namespace NewNexum.Profile.Api.Controllers
 {
     [Route("profile/certification")]
-    [ApiController]
+    [ApiController
     public class CertificationController : ApiControllerBase
     {
         public CertificationController(IMediator mediator) : base(mediator)
         {
-        }
+            }
         
         [HttpPost]
         public async Task<IActionResult> RegisterCertification(RegisterCertificationRequest request)
