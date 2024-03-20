@@ -1,0 +1,30 @@
+name: .NET (Continuous Integration)
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  BuildAndTestApplication:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v4
+      
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies 
+        run: dotnet restore
+
+      - name: Build application
+        run:  dotnet build --no-restore
+      
+      - name: Test application 
+        run: dotnet test --no-build --verbosity normal
