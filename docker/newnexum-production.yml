@@ -1,9 +1,17 @@
 version: "3.4"
 
 networks:
+  sonar-nexum:    
   new-newxum-networking:
     driver: bridge
 
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+  postgresql:
+  postgresql_data:
+  
 services:
   keycloak: 
     image: new-nexum-keycloak/new-nexum-keycloak:latest
@@ -51,3 +59,39 @@ services:
       ADMINER_DEFAULT_PASSWORD: "keycloak"
     networks:
       - new-newxum-networking
+
+  sonar-database:
+    image: postgres
+    container_name: sonar-database
+    environment:
+      POSTGRES_DB: sonar
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - sonar-nexum
+  
+  sonar:
+    image: sonar/sonar:latest
+    container_name: sonar
+    build:
+      context: "./sonarQube"
+      dockerfile: "./Dockerfile"
+    ports: 
+      - 9000:9000 
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://sonar-database:5432/sonar
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: sonar
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: true
+    depends_on:
+      - sonar-database
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_extensions:/opt/sonarqube/extensions
+    networks:
+      - sonar-nexum
+    
