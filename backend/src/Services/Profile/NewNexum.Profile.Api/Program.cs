@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
 using NewNexum.Profile.Api;
-using NewNexum.WebApi.Core.Authentication.Claims;
 using NewNexum.WebApi.Core.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);

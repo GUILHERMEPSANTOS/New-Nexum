@@ -22,6 +22,4 @@
 		<ProjectReference Include="..\NewNexum.Profile.Application\NewNexum.Profile.Application.csproj" />
 		<ProjectReference Include="..\NewNexum.Profile.Persistence\NewNexum.Profile.Persistence.csproj" />
 	</ItemGroup>
-
-
 </Project>

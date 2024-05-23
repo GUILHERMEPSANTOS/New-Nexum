@@ -1,0 +1,167 @@
+#0 building with "default" instance using docker driver
+
+#1 [profile internal] load .dockerignore
+#1 transferring context: 2B 0.0s done
+#1 DONE 0.0s
+
+#2 [profile internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.21kB 0.0s done
+#2 DONE 0.0s
+
+#3 [profile internal] load metadata for mcr.microsoft.com/dotnet/aspnet:8.0
+#3 DONE 1.7s
+
+#4 [profile internal] load metadata for mcr.microsoft.com/dotnet/sdk:8.0
+#4 DONE 1.7s
+
+#5 [profile build  1/10] FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:935902ef9eee58a9226b906e3d6ff1b2abaca240c9d5b4ac8dca9943b26c8f33
+#5 DONE 0.0s
+
+#6 [profile runtime 1/2] FROM mcr.microsoft.com/dotnet/aspnet:8.0@sha256:516d18718444d5af9cd5a55dc10095c55bfcf96606a15e3d03476d4e67d9139a
+#6 DONE 0.0s
+
+#7 [profile runtime 2/2] WORKDIR /app
+#7 CACHED
+
+#8 [profile final 1/2] WORKDIR /app
+#8 CACHED
+
+#9 [profile internal] load build context
+#9 transferring context: 51.16kB 3.4s
+#9 transferring context: 64.86kB 4.0s done
+#9 DONE 4.0s
+
+#10 [profile build  2/10] WORKDIR /src
+#10 CACHED
+
+#11 [profile build  3/10] COPY [./Services/Profile/NewNexum.Profile.Api/NewNexum.Profile.Api.csproj, ./Services/Profile/NewNexum.Profile.Api/]
+#11 CACHED
+
+#12 [profile build  4/10] COPY [./Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj, ./Building Blocks/Infrastructure/NewNexum.WebApi.Core/]
+#12 CACHED
+
+#13 [profile build  5/10] COPY [./Services/Profile/NewNexum.Profile.Application/NewNexum.Profile.Application.csproj, ./Services/Profile/NewNexum.Profile.Application/]
+#13 CACHED
+
+#14 [profile build  6/10] COPY [./Services/Profile/NewNexum.Profile.Persistence/NewNexum.Profile.Persistence.csproj, ./Services/Profile/NewNexum.Profile.Persistence/]
+#14 CACHED
+
+#15 [profile build  7/10] WORKDIR /src
+#15 CACHED
+
+#16 [profile build  8/10] COPY . .
+#16 DONE 0.2s
+
+#17 [profile build  9/10] WORKDIR /src/Services/Profile/NewNexum.Profile.Api/
+#17 DONE 0.0s
+
+#18 [profile build 10/10] RUN dotnet build  NewNexum.Profile.Api.csproj -c Release -o /app/build
+#18 1.127   Determining projects to restore...
+#18 11.43   Restored /src/Services/Profile/NewNexum.Profile.Application/NewNexum.Profile.Application.csproj (in 8.9 sec).
+#18 11.43   Restored /src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj (in 8.9 sec).
+#18 11.43   Restored /src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj (in 8.9 sec).
+#18 11.43   Restored /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj (in 8.9 sec).
+#18 47.89   Restored /src/Building Blocks/Infrastructure/NewNexum.Infra.Database/NewNexum.Infra.Database.csproj (in 45.38 sec).
+#18 47.89   Restored /src/Services/Profile/NewNexum.Profile.Persistence/NewNexum.Profile.Persistence.csproj (in 45.38 sec).
+#18 48.47   Restored /src/Services/Profile/NewNexum.Profile.Api/NewNexum.Profile.Api.csproj (in 45.97 sec).
+#18 53.86 /src/Building Blocks/Core/NewNexum.Core/ValueObjects/ValueObject.cs(18,30): warning CS8765: Nullability of type of parameter 'obj' doesn't match overridden member (possibly because of nullability attributes). [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 53.86 /src/Building Blocks/Core/NewNexum.Core/ValueObjects/ValueObject.cs(13,21): warning CS8767: Nullability of reference types in type of parameter 'other' of 'bool ValueObject.Equals(ValueObject other)' doesn't match implicitly implemented member 'bool IEquatable<ValueObject>.Equals(ValueObject? other)' (possibly because of nullability attributes). [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 53.86 /src/Building Blocks/Core/NewNexum.Core/Extensions/ResultExtensions.cs(10,95): warning CS8602: Dereference of a possibly null reference. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 53.86 /src/Building Blocks/Core/NewNexum.Core/Communication/ValidationResultT.cs(13,57): warning CS8604: Possible null reference argument for parameter 'value' in 'Result<TValue>.Result(TValue value, bool isSuccess, Error error)'. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 53.86 /src/Building Blocks/Core/NewNexum.Core/Communication/Result.cs(34,20): warning CS8604: Possible null reference argument for parameter 'value' in 'Result<TValue>.Result(TValue value, bool isSuccess, Error error)'. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 53.86 /src/Building Blocks/Core/NewNexum.Core/Extensions/ResultExtensions.cs(13,101): warning CS8602: Dereference of a possibly null reference. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 53.93   NewNexum.Core -> /app/build/NewNexum.Core.dll
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(46,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(47,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(66,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(67,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(83,27): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(84,42): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(87,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(88,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'UserId' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'IssuingOrganization' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'CredentialCode' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.73 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'Url' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 54.78 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/Controllers/ApiControllerBase.cs(27,37): warning CS0109: The member 'ApiControllerBase.BadRequest(Error)' does not hide an accessible member. The new keyword is not required. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#18 54.78 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/Controllers/ApiControllerBase.cs(29,37): warning CS0109: The member 'ApiControllerBase.BadRequest(Result)' does not hide an accessible member. The new keyword is not required. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#18 54.78 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/User/UserIdentifierProvider.cs(10,40): warning CS8603: Possible null reference return. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#18 54.81   NewNexum.Profile.Domain -> /app/build/NewNexum.Profile.Domain.dll
+#18 54.83   NewNexum.Infra.Database -> /app/build/NewNexum.Infra.Database.dll
+#18 54.88   NewNexum.WebApi.Core -> /app/build/NewNexum.WebApi.Core.dll
+#18 55.52 /src/Services/Profile/NewNexum.Profile.Application/Certification/Commands/CreateCertification/CreateCertificationCommandHandler.cs(61,44): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Application/NewNexum.Profile.Application.csproj]
+#18 55.62   NewNexum.Profile.Application -> /app/build/NewNexum.Profile.Application.dll
+#18 55.73   NewNexum.Profile.Persistence -> /app/build/NewNexum.Profile.Persistence.dll
+#18 58.23   NewNexum.Profile.Api -> /app/build/NewNexum.Profile.Api.dll
+#18 58.26 
+#18 58.26 Build succeeded.
+#18 58.26 
+#18 58.26 /src/Building Blocks/Core/NewNexum.Core/ValueObjects/ValueObject.cs(18,30): warning CS8765: Nullability of type of parameter 'obj' doesn't match overridden member (possibly because of nullability attributes). [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 58.26 /src/Building Blocks/Core/NewNexum.Core/ValueObjects/ValueObject.cs(13,21): warning CS8767: Nullability of reference types in type of parameter 'other' of 'bool ValueObject.Equals(ValueObject other)' doesn't match implicitly implemented member 'bool IEquatable<ValueObject>.Equals(ValueObject? other)' (possibly because of nullability attributes). [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 58.26 /src/Building Blocks/Core/NewNexum.Core/Extensions/ResultExtensions.cs(10,95): warning CS8602: Dereference of a possibly null reference. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 58.26 /src/Building Blocks/Core/NewNexum.Core/Communication/ValidationResultT.cs(13,57): warning CS8604: Possible null reference argument for parameter 'value' in 'Result<TValue>.Result(TValue value, bool isSuccess, Error error)'. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 58.26 /src/Building Blocks/Core/NewNexum.Core/Communication/Result.cs(34,20): warning CS8604: Possible null reference argument for parameter 'value' in 'Result<TValue>.Result(TValue value, bool isSuccess, Error error)'. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 58.26 /src/Building Blocks/Core/NewNexum.Core/Extensions/ResultExtensions.cs(13,101): warning CS8602: Dereference of a possibly null reference. [/src/Building Blocks/Core/NewNexum.Core/NewNexum.Core.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(46,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(47,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(66,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(67,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(83,27): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(84,42): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(87,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(88,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'UserId' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'IssuingOrganization' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'CredentialCode' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'Url' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#18 58.26 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/Controllers/ApiControllerBase.cs(27,37): warning CS0109: The member 'ApiControllerBase.BadRequest(Error)' does not hide an accessible member. The new keyword is not required. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#18 58.26 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/Controllers/ApiControllerBase.cs(29,37): warning CS0109: The member 'ApiControllerBase.BadRequest(Result)' does not hide an accessible member. The new keyword is not required. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#18 58.26 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/User/UserIdentifierProvider.cs(10,40): warning CS8603: Possible null reference return. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#18 58.26 /src/Services/Profile/NewNexum.Profile.Application/Certification/Commands/CreateCertification/CreateCertificationCommandHandler.cs(61,44): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Application/NewNexum.Profile.Application.csproj]
+#18 58.26     23 Warning(s)
+#18 58.26     0 Error(s)
+#18 58.26 
+#18 58.26 Time Elapsed 00:00:57.60
+#18 DONE 58.5s
+
+#19 [profile publish 1/1] RUN dotnet publish NewNexum.Profile.Api.csproj -c Release -o /app/publish
+#19 1.425   Determining projects to restore...
+#19 3.483   All projects are up-to-date for restore.
+#19 6.354   NewNexum.Core -> /src/Building Blocks/Core/NewNexum.Core/bin/Release/net8.0/NewNexum.Core.dll
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(46,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(47,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(66,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(67,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(83,27): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(84,42): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(87,37): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(88,33): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'UserId' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'IssuingOrganization' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'CredentialCode' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Services/Profile/NewNexum.Profile.Domain/Certification/Certification.cs(36,17): warning CS8618: Non-nullable property 'Url' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/src/Services/Profile/NewNexum.Profile.Domain/NewNexum.Profile.Domain.csproj]
+#19 10.49 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/Controllers/ApiControllerBase.cs(27,37): warning CS0109: The member 'ApiControllerBase.BadRequest(Error)' does not hide an accessible member. The new keyword is not required. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#19 10.49 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/Controllers/ApiControllerBase.cs(29,37): warning CS0109: The member 'ApiControllerBase.BadRequest(Result)' does not hide an accessible member. The new keyword is not required. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#19 10.49 /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/User/UserIdentifierProvider.cs(10,40): warning CS8603: Possible null reference return. [/src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/NewNexum.WebApi.Core.csproj]
+#19 10.63   NewNexum.WebApi.Core -> /src/Building Blocks/Infrastructure/NewNexum.WebApi.Core/bin/Release/net8.0/NewNexum.WebApi.Core.dll
+#19 10.63   NewNexum.Infra.Database -> /src/Building Blocks/Infrastructure/NewNexum.Infra.Database/bin/Release/net8.0/NewNexum.Infra.Database.dll
+#19 10.65   NewNexum.Profile.Domain -> /src/Services/Profile/NewNexum.Profile.Domain/bin/Release/net8.0/NewNexum.Profile.Domain.dll
+#19 11.45 /src/Services/Profile/NewNexum.Profile.Application/Certification/Commands/CreateCertification/CreateCertificationCommandHandler.cs(61,44): warning CS8625: Cannot convert null literal to non-nullable reference type. [/src/Services/Profile/NewNexum.Profile.Application/NewNexum.Profile.Application.csproj]
+#19 11.60   NewNexum.Profile.Application -> /src/Services/Profile/NewNexum.Profile.Application/bin/Release/net8.0/NewNexum.Profile.Application.dll
+#19 11.69   NewNexum.Profile.Persistence -> /src/Services/Profile/NewNexum.Profile.Persistence/bin/Release/net8.0/NewNexum.Profile.Persistence.dll
+#19 13.26   NewNexum.Profile.Api -> /src/Services/Profile/NewNexum.Profile.Api/bin/Release/net8.0/NewNexum.Profile.Api.dll
+#19 13.41   NewNexum.Profile.Api -> /app/publish/
+#19 DONE 13.5s
+
+#20 [profile final 2/2] COPY --from=publish /app/publish .
+#20 DONE 0.1s
+
+#21 [profile] exporting to image
+#21 exporting layers
+#21 exporting layers 0.2s done
+#21 writing image sha256:943cd0c20d6bea7a741354baaa44cb3ea0178c52b0bc51b840e64dd161dab8ce done
+#21 naming to docker.io/gulhermepsantos/profile.api:v1 0.0s done
+#21 DONE 0.2s
