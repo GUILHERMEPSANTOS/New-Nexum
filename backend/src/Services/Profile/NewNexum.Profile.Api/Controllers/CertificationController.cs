@@ -12,10 +12,8 @@ namespace NewNexum.Profile.Api.Controllers
     [ApiController]
     public class CertificationController : ApiControllerBase
     {
-        public CertificationController(IMediator mediator) : base(mediator)
-        {
-            }
-        
+        public CertificationController(IMediator mediator) : base(mediator) { }
+
         [HttpPost]
         public async Task<IActionResult> RegisterCertification(RegisterCertificationRequest request)
             => await Result.Create(request)
