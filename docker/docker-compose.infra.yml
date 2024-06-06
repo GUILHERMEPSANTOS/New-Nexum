@@ -1,0 +1,17 @@
+version: "3.4"
+
+networks:  
+  new-newxum-networking:
+    driver: bridge    
+    name: new-newxum-networking
+
+services:
+  postgres-identity:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    networks:
+      - new-newxum-networking
