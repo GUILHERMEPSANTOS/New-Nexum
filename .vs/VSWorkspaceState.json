@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\docker",
-    "\\docker\\keycloak",
-    "\\docker\\keycloak\\volume"
+    ""
   ],
-  "SelectedNode": "\\docker\\keycloak\\volume\\keycloak_12022024.json",
+  "SelectedNode": "\\NewNexum.sln",
   "PreviewInSolutionExplorer": false
 }

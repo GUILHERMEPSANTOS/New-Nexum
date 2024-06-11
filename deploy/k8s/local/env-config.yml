@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+data:
+  ASPNETCORE_ENVIRONMENT: Development
+  ConnectionStrings_ProfileDB: Data Source=.;Initial Catalog=Certification;Integrated Security=True;Encrypt=false;pooling=true

@@ -12,7 +12,7 @@ namespace NewNexum.Profile.Api.Configurations
             services.AddScoped<IDbContext>(serviceProvider => serviceProvider.GetRequiredService<ApplicationDbContext>());
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+                    options.UseSqlServer(configuration["ConnectionStrings:ProfileDB"])
              );
         }
     }
