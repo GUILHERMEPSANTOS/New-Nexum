@@ -8,22 +8,24 @@ spec:
     matchLabels:
       app.kubernetes.io/name: profile
   template:
-    labels:
-      app.kubernetes.io/name: profile 
-    containers: 
-    - name: profile
-      image: gulhermepsantos/gulhermepsantos/profile.api:v1
-      resources:
-        requests:
-          memory: "128Mi"
-          cpu: "100m" 
-        limits:
-          memory: "250Mi"
-          cpu: "500m"
-      ports:
-      - containerPort: 7000
-      envFrom:
+    metadata:
+      labels:
+        app.kubernetes.io/name: profile 
+    spec:
+      containers: 
+      - name: profile
+        image: gulhermepsantos/gulhermepsantos/profile.api:v1
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m" 
+          limits:
+            memory: "250Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 7000
+        envFrom:
         - configMapRef: 
             name: env-config
-
+  
 
