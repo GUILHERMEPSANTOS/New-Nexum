@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: profile
-        image: gulhermepsantos/gulhermepsantos/profile.api:v1
+        image: gulhermepsantos/profile.api:v1
         resources:
           requests:
             memory: "128Mi"
@@ -23,7 +23,8 @@ spec:
             memory: "250Mi"
             cpu: "500m"
         ports:
-        - containerPort: 7000
+          - containerPort: 7000
+            name: profile-port
         envFrom:
         - configMapRef: 
             name: env-config
