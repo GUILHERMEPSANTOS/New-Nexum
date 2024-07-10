@@ -34,7 +34,9 @@ services:
     build: 
       context: "../backend/src"
       dockerfile: "./Services/Profile/NewNexum.Profile.Api/Dockerfile"
+    ports:
+      - "7000:7000"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_URLS: http://+:7000;
+      ASPNETCORE_URLS: http://+:7000;            
 

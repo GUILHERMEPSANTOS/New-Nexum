@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: profile
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: profile
@@ -12,6 +12,12 @@ spec:
       labels:
         app.kubernetes.io/name: profile 
     spec:
+      affinity:       
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions: [{ key: app.kubernetes.io/name, operator: In, values: [profile] }]
+                topologyKey: "kubernetes.io/hostname"
       containers: 
       - name: profile
         image: gulhermepsantos/profile.api:v1
@@ -27,6 +33,6 @@ spec:
             name: profile-port
         envFrom:
         - configMapRef: 
-            name: env-config
+            name: profile-env-config
   
 
