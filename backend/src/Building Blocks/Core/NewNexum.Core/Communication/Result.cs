@@ -1,8 +1,4 @@
-﻿using Microsoft.Net.Http.Headers;
-using System.Net.Http.Headers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace NewNexum.Core.Communication
+﻿namespace NewNexum.Core.Communication
 {
     public class Result
     {
@@ -22,7 +18,8 @@ namespace NewNexum.Core.Communication
             Error = error;
         }
 
-        public static Result Success() => new(true, Error.None);
+        public static Result Success() 
+            => new(true, Error.None);
 
         public static Result<TValue> Success<TValue>(TValue value)
             => new(value: value, isSuccess: true, error: Error.None);

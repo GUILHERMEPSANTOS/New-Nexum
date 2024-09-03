@@ -50,7 +50,7 @@ namespace NewNexum.Core.Behaviors
             object validationResult = typeof(ValidationResult<>)
                 .MakeGenericType(typeof(TResult).GenericTypeArguments[0])
                 .GetMethod(nameof(ValidationResult.WithErrors))!
-                .Invoke(null, new[] { errors })!;
+                .Invoke(null, [errors])!;
 
             return (TResult)validationResult;
         }

@@ -34,7 +34,7 @@ namespace NewNexum.Core.Tests
         }
 
         [Fact(DisplayName = "Error deve ser Validation Type")]
-        [Trait("Category", "Error")]
+        [Trait("Category", "Error")]    
         public void Error_ShouldReturnValidationType_WhenErrorIsValidationType()
         {
             // Arrange & Act 

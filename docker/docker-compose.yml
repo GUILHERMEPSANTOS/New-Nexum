@@ -28,7 +28,7 @@ services:
     networks:
       - new-newxum-networking
 
-  profile:
+  profile.api:
     image: ${DOCKER_REGISTRY-}/profile.api:${TAG}
     container_name: profile.api
     build: 

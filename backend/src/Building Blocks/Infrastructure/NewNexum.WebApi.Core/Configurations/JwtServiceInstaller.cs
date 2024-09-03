@@ -23,11 +23,11 @@ namespace NewNexum.WebApi.Core.Configurations
 
                  options.TokenValidationParameters = new TokenValidationParameters
                  {
+                     ValidateIssuerSigningKey = true,
                      ValidateAudience = true,
                      ValidAudience = $"{configuration["Keycloak:audience"]}",
                      ValidateIssuer = Convert.ToBoolean($"{configuration["Keycloak:validate-issuer"]}"),
                      ValidateLifetime = true,
-                     ValidateIssuerSigningKey = true,
                  };
              });
         }

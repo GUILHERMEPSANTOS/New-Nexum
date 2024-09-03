@@ -7,7 +7,7 @@ namespace NewNexum.WebApi.Core.User
     public sealed class UserIdentifierProvider : IUserIdentifierProvider
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private HttpContext Context => _httpContextAccessor?.HttpContext;
+        private HttpContext? Context => _httpContextAccessor?.HttpContext;
 
         public UserIdentifierProvider(IHttpContextAccessor httpContextAccessor)
         {

@@ -24,8 +24,8 @@ namespace NewNexum.WebApi.Core.Controllers
 
         protected new IActionResult Ok(object value) => base.Ok(value);
 
-        protected new IActionResult BadRequest(Error error) => base.BadRequest(new ApiErrorResponse(new[] { error }));
+        protected IActionResult BadRequest(Error error) => base.BadRequest(new ApiErrorResponse([error]));
 
-        protected new IActionResult BadRequest(Result result) => base.BadRequest(result.ToProblemDetails());
+        protected IActionResult BadRequest(Result result) => base.BadRequest(result.ToProblemDetails());
     }
 }

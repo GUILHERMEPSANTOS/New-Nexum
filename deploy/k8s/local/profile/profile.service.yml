@@ -5,11 +5,11 @@ metadata:
 spec:
  selector:
    app.kubernetes.io/name: profile
- type: NodePort 
+ type: LoadBalancer 
  ports:
   - name: http
     protocol: TCP
     port: 7000
     targetPort: profile-port
-    nodePort: 30080
+    
     
