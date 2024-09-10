@@ -12,3 +12,4 @@ public class Permission
         Code = code;
     }
 }
+    

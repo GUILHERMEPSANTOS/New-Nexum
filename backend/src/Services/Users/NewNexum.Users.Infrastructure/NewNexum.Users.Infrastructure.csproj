@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Building Blocks\Infrastructure\NewNexum.Infra.Database\NewNexum.Infra.Database.csproj" />
+    <ProjectReference Include="..\NewNexum.Users.Domain\NewNexum.Users.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
