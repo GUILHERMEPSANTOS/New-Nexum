@@ -9,6 +9,4 @@ namespace NewNexum.Users.Application.Users.Commands.RegisterUser
         string FirstName,
         string LastName
      ) : ICommand<Result>;
-
-
 }
