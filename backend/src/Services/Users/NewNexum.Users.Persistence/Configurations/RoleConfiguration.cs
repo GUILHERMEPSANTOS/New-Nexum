@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NewNexum.Users.Domain.User;
+using NewNexum.Users.Persistence.Constants;
 
-namespace NewNexum.Users.Infrastructure.Users
+namespace NewNexum.Users.Persistence.Users.Configurations
 {
     public class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.ToTable("roles");
+            builder.ToTable(TableNames.Roles);
 
             builder.HasKey(role => role.Name);
             builder.Property(role => role.Name).HasMaxLength(50);
@@ -23,6 +24,8 @@ namespace NewNexum.Users.Infrastructure.Users
                         .Property("RoleName")
                         .HasColumnName("role_name");
                 });
+
+            builder.HasData(Role.Member, Role.Admin);
         }
     }
 }

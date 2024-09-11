@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Building Blocks\Infrastructure\NewNexum.Infra.Database\NewNexum.Infra.Database.csproj" />
+		<ProjectReference Include="..\NewNexum.Users.Domain\NewNexum.Users.Domain.csproj" />
+	</ItemGroup>
+</Project>
