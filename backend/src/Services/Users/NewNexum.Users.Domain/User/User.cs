@@ -1,8 +1,9 @@
 using NewNexum.Core.Communication;
+using NewNexum.Core.DomainObjects;
 
 namespace NewNexum.Users.Domain.User;
 
-public class User
+public class User : AggregateRoot
 {
     public Guid Id { get; private set; }
     public string Email { get; private set; }

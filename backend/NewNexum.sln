@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewNexum.Users.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewNexum.Infra.IdP", "src\Building Blocks\Infrastructure\NewNexum.Infra.IdP\NewNexum.Infra.IdP.csproj", "{D05DC0E3-25F4-4354-A618-307443E0A81D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewNexum.Users.Api", "src\Services\Users\NewNexum.Users.Api\NewNexum.Users.Api.csproj", "{C7258073-A579-4914-89A1-C0E0680347D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,10 @@ Global
 		{D05DC0E3-25F4-4354-A618-307443E0A81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D05DC0E3-25F4-4354-A618-307443E0A81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D05DC0E3-25F4-4354-A618-307443E0A81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7258073-A579-4914-89A1-C0E0680347D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7258073-A579-4914-89A1-C0E0680347D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7258073-A579-4914-89A1-C0E0680347D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7258073-A579-4914-89A1-C0E0680347D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,6 +155,7 @@ Global
 		{FCA06E2B-945C-4477-B461-9D134C4E9BD9} = {2F8019C0-530A-4559-B35F-4880CD0DAC3B}
 		{689CF6B9-B4E4-4F0B-A502-CA4C45F00FF0} = {2F8019C0-530A-4559-B35F-4880CD0DAC3B}
 		{D05DC0E3-25F4-4354-A618-307443E0A81D} = {F8DCAEDE-4525-47A0-9638-5D7167FADBFF}
+		{C7258073-A579-4914-89A1-C0E0680347D9} = {2F8019C0-530A-4559-B35F-4880CD0DAC3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {019E8C9A-62B2-4EDD-AF40-804E23650CC0}

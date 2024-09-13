@@ -10,10 +10,9 @@ namespace NewNexum.Core.DomainObjects
     public abstract class AggregateRoot : Entity
     {
         private readonly List<IDomainEvent> _domainEvents = [];
+        public IReadOnlyCollection<IDomainEvent> GetDomainEvents() => _domainEvents;
 
         public AggregateRoot() : base() { }
-
-        public IReadOnlyCollection<IDomainEvent> GetDomainEvents() => _domainEvents;
 
         public void ClearDomainEvents() => _domainEvents?.Clear();
 

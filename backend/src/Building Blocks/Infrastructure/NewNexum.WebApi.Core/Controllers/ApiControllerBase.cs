@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 namespace NewNexum.WebApi.Core.Controllers
 {
     [Authorize]
+    [ApiController]
     public abstract class ApiControllerBase : ControllerBase
     {
         protected readonly IMediator _mediator;

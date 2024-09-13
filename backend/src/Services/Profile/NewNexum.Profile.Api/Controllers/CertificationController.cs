@@ -9,7 +9,6 @@ using NewNexum.Core.Extensions;
 namespace NewNexum.Profile.Api.Controllers
 {
     [Route("profile/certification")]
-    [ApiController]
     public class CertificationController : ApiControllerBase
     {
         public CertificationController(IMediator mediator) : base(mediator) { }
