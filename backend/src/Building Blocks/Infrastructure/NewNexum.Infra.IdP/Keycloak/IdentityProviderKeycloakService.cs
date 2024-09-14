@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NewNexum.Infra.IdP.Keycloak
 {
-    internal class IdentityProviderKeycloakService(KeyCloakClient keyCloakClient) : IIdentityProviderService
+    public class IdentityProviderKeycloakService(KeyCloakClient keyCloakClient) : IIdentityProviderService
     {
         private const string PasswordCredentialType = "Password";
 
@@ -33,7 +33,7 @@ namespace NewNexum.Infra.IdP.Keycloak
                 return identityId;
             }
             catch (HttpRequestException exception) when (exception.StatusCode == HttpStatusCode.Conflict)
-            {             
+            {
                 return Result.Failure<string>(IdentityProviderErrors.EmailIsNotUnique);
             }
         }

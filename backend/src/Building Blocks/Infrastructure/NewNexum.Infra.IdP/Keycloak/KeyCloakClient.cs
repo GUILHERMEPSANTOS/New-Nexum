@@ -3,7 +3,7 @@
 
 namespace NewNexum.Users.Infrastructure.Identity
 {
-    internal class KeyCloakClient(HttpClient httpClient)
+    public class KeyCloakClient(HttpClient httpClient)
     {
         internal async Task<string> RegisterUserAsync(
             UserRepresentation user,

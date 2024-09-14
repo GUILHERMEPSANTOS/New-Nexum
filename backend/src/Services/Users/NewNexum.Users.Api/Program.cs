@@ -1,4 +1,5 @@
 using NewNexum.Users.Api;
+using NewNexum.Users.Api.Middleware;
 using NewNexum.WebApi.Core.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.InstallServices(builder.Configuration,
     NewNexum.WebApi.Core.AssemblyReference.Assembly,
@@ -24,6 +27,7 @@ app.UseCors("All");
 
 app.UseRouting();
 
+app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
 

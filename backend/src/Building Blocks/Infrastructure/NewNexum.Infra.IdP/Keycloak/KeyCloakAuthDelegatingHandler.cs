@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace NewNexum.Users.Infrastructure.Identity;
 
-internal class KeyCloakAuthDelegatingHandler(IOptions<KeyCloakOptions> options) : DelegatingHandler
+public class KeyCloakAuthDelegatingHandler(IOptions<KeyCloakOptions> options) : DelegatingHandler
 {
     private readonly KeyCloakOptions _options = options.Value;
 
