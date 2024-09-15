@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Options;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json.Serialization;
+using Microsoft.Extensions.Options;
 
 namespace NewNexum.Users.Infrastructure.Identity;
 
@@ -9,14 +9,18 @@ public class KeyCloakAuthDelegatingHandler(IOptions<KeyCloakOptions> options) : 
 {
     private readonly KeyCloakOptions _options = options.Value;
 
-    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    protected override async Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken
+    )
     {
         var token = await GetAuthorizationToken(cancellationToken);
-        
+
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
 
-        var httpResponseMessage = await  base.SendAsync(request, cancellationToken);
+        var httpResponseMessage = await base.SendAsync(request, cancellationToken);
 
+        var teste = await httpResponseMessage.Content.ReadAsStringAsync();
         httpResponseMessage.EnsureSuccessStatusCode();
 
         return httpResponseMessage;
@@ -29,7 +33,7 @@ public class KeyCloakAuthDelegatingHandler(IOptions<KeyCloakOptions> options) : 
             new("client_id", _options.ConfidentialClientId),
             new("client_secret", _options.ConfidentialClientSecret),
             new("scope", "openid"),
-            new("grant_type", "client_credentials")
+            new("grant_type", "client_credentials"),
         };
 
         using var authRequestContent = new FormUrlEncodedContent(authRequestParameters);
@@ -44,7 +48,6 @@ public class KeyCloakAuthDelegatingHandler(IOptions<KeyCloakOptions> options) : 
         return (await responseMessage.Content.ReadFromJsonAsync<AuthToken>(cancellationToken))!;
     }
 }
-
 
 internal class AuthToken
 {

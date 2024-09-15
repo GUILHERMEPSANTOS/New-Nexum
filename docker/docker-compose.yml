@@ -1,8 +1,7 @@
 version: "3.4"
 
 networks:  
-  new-newxum-networking: 
-    external: true
+  new-newxum-networking:
 
 services:
   keycloak: 
@@ -11,22 +10,31 @@ services:
     build:
       context: "./keycloak"
       dockerfile: "./Dockerfile"
-    command: -v start-dev --import-realm --spi-theme-static-max-age=-1 --spi-theme-cache-themes=false --spi-theme-cache-templates=false
+    command: start-dev --import-realm
     ports:
       - "8080:8080"
     volumes:
-      - ./keycloak/volume:/opt/keycloak/data/import
+      - ./keycloak/containers/identity:/opt/keycloak/data
+      - ./keycloak/containers/.files:/opt/keycloak/data/import       
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
-      KC_DB_USERNAME: keycloak
-      KC_DB_PASSWORD: keycloak
       KC_HOSTNAME: localhost    
     restart: always      
     networks:
       - new-newxum-networking
+
+  identity.api:
+    image: ${DOCKER_REGISTRY-}/identity.api:${TAG}
+    container_name: identity.api
+    build: 
+      context: "../backend/src"
+      dockerfile: "./Services/Users/NewNexum.Users.Api/Dockerfile"
+    ports:
+      - "5002:5002"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:5002;  
 
   profile.api:
     image: ${DOCKER_REGISTRY-}/profile.api:${TAG}

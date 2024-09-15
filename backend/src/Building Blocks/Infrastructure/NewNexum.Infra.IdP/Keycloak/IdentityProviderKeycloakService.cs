@@ -25,17 +25,10 @@ namespace NewNexum.Infra.IdP.Keycloak
                 true,
                 [new CredentialRepresentation(PasswordCredentialType, user.Password, false)]
              );
-
-            try
-            {
-                string identityId = await keyCloakClient.RegisterUserAsync(userRepresentation, cancellationToken);
-
-                return identityId;
-            }
-            catch (HttpRequestException exception) when (exception.StatusCode == HttpStatusCode.Conflict)
-            {
-                return Result.Failure<string>(IdentityProviderErrors.EmailIsNotUnique);
-            }
+                     
+            string identityId = await keyCloakClient.RegisterUserAsync(userRepresentation, cancellationToken);
+            
+            return identityId;
         }
     }
 }
