@@ -1,4 +1,6 @@
-﻿using System.Net.Http.Json;
+﻿using NewNexum.Core.Communication;
+using NewNexum.Infra.IdP.Keycloak;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 
@@ -6,13 +8,16 @@ namespace NewNexum.Users.Infrastructure.Identity
 {
     public class KeyCloakClient(HttpClient httpClient)
     {
-        internal async Task<string> RegisterUserAsync(
+        public async Task<Result<string>> RegisterUserAsync(
             UserRepresentation user,
             CancellationToken cancellationToken = default)
         {
             var httpResponseMessage = await httpClient.PostAsJsonAsync("users", user, cancellationToken);
 
-            httpResponseMessage.EnsureSuccessStatusCode();
+            if (!httpResponseMessage.IsSuccessStatusCode)
+            {
+               return Result.Failure<string>(KeycloakErros.FailureRegisterUser);
+            }
 
             return ExtractIdentityIdFromLocationHeader(httpResponseMessage);
         }

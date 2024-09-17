@@ -11,5 +11,12 @@
         {
             Name = name;
         }
+
+        public bool Equals(Role? other)
+        {
+            if (other is null) return false;
+
+            return Name == other.Name;
+        }
     }
 }

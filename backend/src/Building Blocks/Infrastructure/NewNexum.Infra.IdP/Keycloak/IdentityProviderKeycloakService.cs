@@ -26,7 +26,7 @@ namespace NewNexum.Infra.IdP.Keycloak
                 [new CredentialRepresentation(PasswordCredentialType, user.Password, false)]
              );
                      
-            string identityId = await keyCloakClient.RegisterUserAsync(userRepresentation, cancellationToken);
+            Result<string> identityId = await keyCloakClient.RegisterUserAsync(userRepresentation, cancellationToken);
             
             return identityId;
         }

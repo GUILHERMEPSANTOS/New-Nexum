@@ -2,7 +2,7 @@
 
 namespace NewNexum.Users.Infrastructure.Identity;
 
-internal record UserRepresentation(
+public record UserRepresentation(
     [property: JsonPropertyName("username")] string UserName,
     [property: JsonPropertyName("email")] string Email,
     [property: JsonPropertyName("firstName")] string FirstName,
