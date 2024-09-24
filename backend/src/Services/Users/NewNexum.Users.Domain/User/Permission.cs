@@ -1,15 +1,14 @@
 namespace NewNexum.Users.Domain.User;
 
-public class Permission
+public sealed class Permission
 {
-    public string Code { get; private set; }
-    public static readonly Permission ModifyCertificationProfile = new Permission("profile-certification:update");
-    public static readonly Permission AddCertificationProfile = new Permission("profile-certification:add");
-    public static readonly Permission RemoveCertificationProfile = new Permission("profile-certification:remove");
+    public string Code { get; }
+    public static readonly Permission AddCertificationProfile = new("profile-certification:add");
+    public static readonly Permission ModifyCertificationProfile = new("profile-certification:update");
+    public static readonly Permission RemoveCertificationProfile = new("profile-certification:remove");
 
     public Permission(string code)
     {
         Code = code;
     }
 }
-    

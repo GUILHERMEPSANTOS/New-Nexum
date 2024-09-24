@@ -13,15 +13,14 @@ namespace NewNexum.Users.Persistence.Users.Configurations
 
             builder.HasKey(role => role.Name);
             builder.Property(role => role.Name).HasMaxLength(50);
-            builder.
-                HasMany<User>()
+            builder.HasMany<User>()
                 .WithMany(user => user.Roles)
                 .UsingEntity(joinEntityName =>
                 {
                     joinEntityName.ToTable("user_roles");
 
                     joinEntityName
-                        .Property("RoleName")
+                        .Property("RolesName")
                         .HasColumnName("role_name");
                 });
 

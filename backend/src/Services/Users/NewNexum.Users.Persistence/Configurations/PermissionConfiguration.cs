@@ -11,12 +11,13 @@ namespace NewNexum.Users.Persistence.Configurations
         {
             builder.ToTable(TableNames.Permissions);
 
-            builder
-                .HasKey(permission => permission.Code);
+            builder.HasKey(permission => permission.Code);
+            builder.Property(permission => permission.Code).HasMaxLength(100);
 
-            builder
-                .Property(permission => permission.Code)
-                .HasMaxLength(100);
+            builder.HasData(
+                Permission.AddCertificationProfile,
+                Permission.ModifyCertificationProfile,
+                Permission.RemoveCertificationProfile);
 
             builder
                  .HasMany<Role>()
@@ -25,9 +26,14 @@ namespace NewNexum.Users.Persistence.Configurations
                  {
                      joinBuilder.ToTable(TableNames.RolePermission);
 
-                     builder.HasData(CreateRolePermission(Role.Member, Permission.AddCertificationProfile));
-                     builder.HasData(CreateRolePermission(Role.Member, Permission.RemoveCertificationProfile));
-                     builder.HasData(CreateRolePermission(Role.Member, Permission.ModifyCertificationProfile));
+                     joinBuilder.HasData(
+                         CreateRolePermission(Role.Member, Permission.AddCertificationProfile)
+                       , CreateRolePermission(Role.Member, Permission.RemoveCertificationProfile)
+                       , CreateRolePermission(Role.Member, Permission.ModifyCertificationProfile)
+                    
+                       , CreateRolePermission(Role.Admin, Permission.AddCertificationProfile)
+                       , CreateRolePermission(Role.Admin, Permission.RemoveCertificationProfile)
+                       , CreateRolePermission(Role.Admin, Permission.ModifyCertificationProfile));
                  });
         }
 
@@ -36,7 +42,7 @@ namespace NewNexum.Users.Persistence.Configurations
             return new
             {
                 RoleName = role.Name,
-                Permission = permission.Code
+                PermissionCode = permission.Code,
             };
         }
     }

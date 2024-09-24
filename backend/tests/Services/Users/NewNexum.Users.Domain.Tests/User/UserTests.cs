@@ -1,4 +1,4 @@
-﻿using NewNexum.Users.Domain.User;
+﻿
 
 namespace NewNexum.Users.Domain.Tests.Users
 {
@@ -9,10 +9,10 @@ namespace NewNexum.Users.Domain.Tests.Users
         public void Create_ShouldAssignMemberRole_WhenUserIsCreated()
         {
             // Arrange & Act
-            var user = User.User.Create("nome", "firstName", "lastName", Guid.NewGuid().ToString());
+            var user = Domain.User.User.Create("nome", "firstName", "lastName", Guid.NewGuid().ToString());
             
             //Assert
-            Assert.Contains(Role.Member, user.Value.Roles);         
+            Assert.Contains(Domain.User.Role.Member, user.Value.Roles);         
         }  
     }
 }
