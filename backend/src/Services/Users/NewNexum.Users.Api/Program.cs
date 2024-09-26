@@ -1,3 +1,4 @@
+using NewNexum.Profile.Api.Configurations;
 using NewNexum.Users.Api;
 using NewNexum.Users.Api.Middleware;
 using NewNexum.WebApi.Core.Configurations;
@@ -21,6 +22,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.ApplyMigrations();
 }
 
 app.UseCors("All");
