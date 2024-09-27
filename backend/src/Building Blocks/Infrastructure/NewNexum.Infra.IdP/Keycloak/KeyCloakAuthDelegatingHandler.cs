@@ -19,8 +19,7 @@ public class KeyCloakAuthDelegatingHandler(IOptions<KeyCloakOptions> options) : 
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
 
         var httpResponseMessage = await base.SendAsync(request, cancellationToken);
-
-        var teste = await httpResponseMessage.Content.ReadAsStringAsync();
+        
         httpResponseMessage.EnsureSuccessStatusCode();
 
         return httpResponseMessage;

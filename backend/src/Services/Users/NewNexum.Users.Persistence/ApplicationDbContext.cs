@@ -10,16 +10,15 @@ namespace NewNexum.Users.Persistence
     public class ApplicationDbContext : DbContext, IDbContext
     {
         internal DbSet<User> Users { get; set; }
-            
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options) { }
 
         public new DbSet<TEntity> Set<TEntity>()
-            where TEntity : Entity
-            => base.Set<TEntity>();
+            where TEntity : Entity => base.Set<TEntity>();
 
         public void Insert<TEntity>(TEntity entity)
-            where TEntity : Entity
-            => Set<TEntity>().Add(entity);
+            where TEntity : Entity => Set<TEntity>().Add(entity);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,5 +28,7 @@ namespace NewNexum.Users.Persistence
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new PermissionConfiguration());
         }
+
+        public DbContext GetContext() => this;
     }
 }
