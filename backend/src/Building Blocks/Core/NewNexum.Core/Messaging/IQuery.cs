@@ -1,13 +1,9 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NewNexum.Core.Communication;
 
 namespace NewNexum.Core.Messaging
 {
-    public interface IQuery<out TResponse> : IRequest<TResponse>
+    public interface IQuery<TResponse> : IRequest<Result<TResponse>>
     {
     }
 }

@@ -1,14 +1,9 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NewNexum.Core.Communication;
 
 namespace NewNexum.Core.Messaging
 {
-    public interface IQueryHandler<in TQuery, TResponse> : IRequestHandler<TQuery, TResponse> 
+    public interface IQueryHandler<in TQuery, TResponse> : IRequestHandler<TQuery, Result<TResponse>>
         where TQuery : IQuery<TResponse>
-    {
-    }
+    { }
 }

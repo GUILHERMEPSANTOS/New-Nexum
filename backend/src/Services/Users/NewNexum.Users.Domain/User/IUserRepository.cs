@@ -9,5 +9,6 @@ namespace NewNexum.Users.Domain.User
     public interface IUserRepository
     {
         void Insert(User user);
+        Task<IEnumerable<UserPermission>> GetUserPermission(string IdentityId);
     }
 }

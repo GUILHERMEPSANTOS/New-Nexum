@@ -39,3 +39,5 @@ public class User : AggregateRoot
         return user;
     }
 }
+
+public record UserPermission(Guid UserId, string Permission);

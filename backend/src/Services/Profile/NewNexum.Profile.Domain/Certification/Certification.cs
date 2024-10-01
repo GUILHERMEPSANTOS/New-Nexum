@@ -19,9 +19,9 @@ namespace NewNexum.Profile.Domain
 
         public DateTime? ExpirationDate { get; private set; }
 
-        public string CredentialCode { get; private set; }
+        public string? CredentialCode { get; private set; }
 
-        public Url Url { get; private set; }
+        public Url? Url { get; private set; }
 
         public DateTime? DateAdded { get; private set; }
 
@@ -43,8 +43,8 @@ namespace NewNexum.Profile.Domain
             string issuingOrganization,
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
-            string credentialCode = null,
-            Url credentialURL = null) : base()
+            string? credentialCode = null,
+            Url? credentialURL = null) : base()
         {
             UserId = userId;
             Name = name;
@@ -63,8 +63,8 @@ namespace NewNexum.Profile.Domain
             string issuingOrganization,
             DateTime? dateOfIssue = null,
             DateTime? expirationDate = null,
-            string credentialCode = null,
-            Url credentialURL = null)
+            string? credentialCode = null,
+            Url? credentialURL = null)
         {
             var certification = new Certification(
                 userId,
