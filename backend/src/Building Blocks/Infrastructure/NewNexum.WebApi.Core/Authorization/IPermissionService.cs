@@ -2,7 +2,7 @@
 
 namespace NewNexum.WebApi.Core.Authorization
 {
-    internal interface IPermissionService
+    public interface IPermissionService
     {
         Task<Result<PermissionsResponse>> GetUserPermissionsAsync(string identityId);
     }

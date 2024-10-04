@@ -67,8 +67,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewNexum.infra.Idp.Tests", "tests\Building Blocks\Infrastructure\NewNexum.infra.Idp.Tests\NewNexum.infra.Idp.Tests.csproj", "{A25A663E-4944-414F-8782-D3EF98F3E582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewNexum.Common.Application", "src\Building Blocks\Infrastructure\NewNexum.Common.Application\NewNexum.Common.Application.csproj", "{E95F1546-FC3C-4682-B118-EF8DB9CB2520}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,10 +141,6 @@ Global
 		{A25A663E-4944-414F-8782-D3EF98F3E582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A25A663E-4944-414F-8782-D3EF98F3E582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A25A663E-4944-414F-8782-D3EF98F3E582}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E95F1546-FC3C-4682-B118-EF8DB9CB2520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E95F1546-FC3C-4682-B118-EF8DB9CB2520}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E95F1546-FC3C-4682-B118-EF8DB9CB2520}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E95F1546-FC3C-4682-B118-EF8DB9CB2520}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,7 +176,6 @@ Global
 		{EE8197A1-9B6C-4BF1-A71B-90488523F78E} = {385F4223-54E8-4A2B-AB27-8BC360AF6EC1}
 		{E3D14E67-4A59-4472-B8D7-0DA795F471C5} = {46287BC6-ADFA-4075-8BBE-07EF82C9BF3D}
 		{A25A663E-4944-414F-8782-D3EF98F3E582} = {E3D14E67-4A59-4472-B8D7-0DA795F471C5}
-		{E95F1546-FC3C-4682-B118-EF8DB9CB2520} = {F8DCAEDE-4525-47A0-9638-5D7167FADBFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {019E8C9A-62B2-4EDD-AF40-804E23650CC0}

@@ -4,7 +4,7 @@ using NewNexum.Core.Messaging;
 
 namespace NewNexum.Profile.Application.Certification.Commands.CreateCertification
 {
-    public class CreateCertificationCommand : ICommand<Result>
+    public class CreateCertificationCommand : ICommand
     {
         public CreateCertificationCommand(string name, string issuingOrganization, DateTime? dateOfIssue, DateTime? expirationDate, string credentialCode, string credentialURL)
         {

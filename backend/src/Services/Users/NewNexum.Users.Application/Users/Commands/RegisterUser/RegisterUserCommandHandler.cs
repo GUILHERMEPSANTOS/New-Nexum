@@ -10,7 +10,7 @@ namespace NewNexum.Users.Application.Users.Commands.RegisterUser
         IUnitOfWork _unitOfWork,
         IIdentityProviderService _identityProviderService,
         IUserRepository _userRepository
-    ) : ICommandHandler<RegisterUserCommand, Result>
+    ) : ICommandHandler<RegisterUserCommand>
     {
         public async Task<Result> Handle(
             RegisterUserCommand request,

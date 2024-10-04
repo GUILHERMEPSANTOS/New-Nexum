@@ -17,7 +17,7 @@ export const authOptions: AuthOptions = {
     ],
     callbacks: {
         async jwt({ token, account, profile }) {
-            const nowTimeStamp = Math.floor(Date.now() / 1000);        
+            const nowTimeStamp = Math.floor(Date.now() / 1000);
 
             if (account) {
                 token.decoded = jwtDecode(account?.access_token || "");
@@ -26,7 +26,7 @@ export const authOptions: AuthOptions = {
                 token.expires_at = account.expires_at || new Date().getDate();
                 token.refresh_token = account.refresh_token || "";
                 token.groups = profile?.groups || []
-
+                            
                 return token;
             } else if (nowTimeStamp < (token?.expires_at as number)) {
                 // token has not expired yet, return it
@@ -41,13 +41,13 @@ export const authOptions: AuthOptions = {
 
         async session({ session, token }) {
             console.log(token.access_token);
-            
-            session.access_token = encrypt(token.access_token || "");            
-            session.id_token = encrypt(token.id_token || "");                
+
+            session.access_token = encrypt(token.access_token || "");
+            session.id_token = encrypt(token.id_token || "");
             session.roles = token.decoded.realm_access.roles;
             session.error = token.error;
             session.groups = token.groups;
-        
+
             return session;
         }
     }

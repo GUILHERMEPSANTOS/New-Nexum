@@ -10,7 +10,7 @@ using System.Security.Claims;
 
 namespace NewNexum.Profile.Application.Certification.Commands.CreateCertification
 {
-    public class CreateCertificationCommandHandler : ICommandHandler<CreateCertificationCommand, Result>
+    public class CreateCertificationCommandHandler : ICommandHandler<CreateCertificationCommand>
     {
         private readonly ICertificationRepository _certificationRepository;
         private readonly IUnitOfWork _unitOfWork;

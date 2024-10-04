@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using NewNexum.Profile.Domain;
 using NewNexum.Application.Core.Extensions;
+using NewNexum.Profile.Domain;
 
 namespace NewNexum.Profile.Application.Certification.Commands.CreateCertification
 {
@@ -8,10 +8,10 @@ namespace NewNexum.Profile.Application.Certification.Commands.CreateCertificatio
     {
         public CreateCertificationCommandValidator()
         {
-            RuleFor(certification =>  certification.Name)
+            RuleFor(certification => certification.Name)
                 .NotEmpty()
                 .WithError(CertificationErrors.NameCanNotBeEmpty);
-
+            
             RuleFor(certification => certification.IssuingOrganization)
                 .NotEmpty()
                 .WithError(CertificationErrors.IssuingOrganizationCanNotBeEmpty);

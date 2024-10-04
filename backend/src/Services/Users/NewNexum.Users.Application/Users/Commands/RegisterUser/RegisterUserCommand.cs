@@ -8,5 +8,5 @@ namespace NewNexum.Users.Application.Users.Commands.RegisterUser
         string Password,
         string FirstName,
         string LastName
-     ) : ICommand<Result>;
+     ) : ICommand;
 }

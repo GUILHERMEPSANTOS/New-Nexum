@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NewNexum.Core.User;
-using NewNexum.WebApi.Core.Authentication.Claims;
+using NewNexum.WebApi.Core.Authentication;
 using NewNexum.WebApi.Core.User;
 
 namespace NewNexum.WebApi.Core.Configurations
@@ -14,7 +14,7 @@ namespace NewNexum.WebApi.Core.Configurations
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserIdentifierProvider, UserIdentifierProvider>();
-            services.AddTransient<IClaimsTransformation>(_ => new KeycloakRolesClaimsTransformation(configuration["Keycloak:audience"] ?? ""));
+            services.AddTransient<IClaimsTransformation, CustomClaimsTransformation>();
         }
     }
 }

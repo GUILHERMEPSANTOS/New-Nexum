@@ -1,7 +1,9 @@
 ﻿using NewNexum.Core.Behaviors;
 using NewNexum.WebApi.Core.Configurations;
 using FluentValidation;
-using Microsoft.AspNetCore.Identity;
+using NewNexum.Profile.Application.Authorization;
+using NewNexum.WebApi.Core.Authorization;
+using Microsoft.Extensions.Options;
 
 namespace NewNexum.Profile.Api.Configurations
 {
@@ -9,6 +11,10 @@ namespace NewNexum.Profile.Api.Configurations
     {
         public void Install(ref IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient<PermissionDelegatingHandler>();
+
+            services.Configure<UserOptions>(configuration.GetSection("Users"));
+
             services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssemblies(Application.AssemblyReference.Assembly);
@@ -16,6 +22,14 @@ namespace NewNexum.Profile.Api.Configurations
             });
 
             services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
+
+            services.AddHttpClient<IPermissionService, PermissionService>((serviceProvider, httpClient) =>
+            {
+                var userUrl = serviceProvider
+                      .GetRequiredService<IOptions<UserOptions>>().Value;
+
+                httpClient.BaseAddress = new Uri(userUrl.Url);
+            }).AddHttpMessageHandler<PermissionDelegatingHandler>();
         }
     }
 }

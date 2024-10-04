@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Building Blocks\Core\NewNexum.Core\NewNexum.Core.csproj" />
-    <ProjectReference Include="..\..\..\Building Blocks\Infrastructure\NewNexum.Common.Application\NewNexum.Common.Application.csproj" />
+    <ProjectReference Include="..\..\..\Building Blocks\Infrastructure\NewNexum.WebApi.Core\NewNexum.WebApi.Core.csproj" />
     <ProjectReference Include="..\NewNexum.Profile.Domain\NewNexum.Profile.Domain.csproj" />
   </ItemGroup>
 

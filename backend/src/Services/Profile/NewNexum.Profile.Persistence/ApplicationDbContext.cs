@@ -23,5 +23,10 @@ namespace NewNexum.Profile.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbContext GetContext()
+        {
+            return this;
+        }
     }
 }

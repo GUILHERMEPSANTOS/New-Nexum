@@ -1,0 +1,27 @@
+meta {
+  name: RegisterCertification
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/profile/certification
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer 
+}
+
+body:json {
+  {
+    "Name": "Certification Name",
+    "IssuingOrganization": "Organization Name",
+    "DateOfIssue": "2023-09-28T00:00:00",
+    "ExpirationDate": "2024-09-28T00:00:00",
+    "CredentialCode": "12345",
+    "CredentialURL": "https://example.com/credential"
+  }
+  
+}
