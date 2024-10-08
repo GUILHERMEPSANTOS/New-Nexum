@@ -3,5 +3,5 @@ using NewNexum.WebApi.Core.Authorization;
 
 namespace NewNexum.Users.Application.Users.Queries.GetUserPermissions
 {
-    public record GetUserPermissionQuery : IQuery<PermissionsResponse>;    
+    public record GetUserPermissionQuery(string identityId) : IQuery<PermissionsResponse>;    
 }

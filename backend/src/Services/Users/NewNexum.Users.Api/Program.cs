@@ -25,11 +25,12 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 
-app.UseCors("All");
 
+app.UseCors("All");
 app.UseRouting();
 
 app.UseExceptionHandler();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

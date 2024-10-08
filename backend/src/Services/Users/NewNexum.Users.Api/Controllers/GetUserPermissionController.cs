@@ -9,18 +9,18 @@ using NewNexum.WebApi.Core.Controllers;
 namespace NewNexum.Users.Api.Controllers
 {
 
-    [Route("users/permissions")]
+    [Route("users/{identityId}")]
     public class GetUserPermissionController : ApiControllerBase
     {
         public GetUserPermissionController(IMediator _mediator) : base(_mediator)
         {
         }
 
-        [HttpGet]        
-        public async Task<IActionResult> GetUserPermission()
+        [HttpGet("permissions")]        
+        public async Task<IActionResult> GetUserPermission([FromRoute] string identityId)
         {
-            return await Result.Create(new GetUserPermissionQuery())
-                    .Bind(query => _mediator.Send(query))
+            return await Result.Create(new GetUserPermissionQuery(identityId))
+                    .Bind(async query => await _mediator.Send(query))
                     .Match(Ok, BadRequest);
         }
     }

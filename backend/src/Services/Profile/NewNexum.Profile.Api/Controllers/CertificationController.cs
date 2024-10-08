@@ -22,7 +22,7 @@ namespace NewNexum.Profile.Api.Controllers
                            , request.ExpirationDate
                            , request.CredentialCode
                            , request.CredentialURL))
-                    .Bind(command => _mediator.Send(command))
+                    .Bind(async command => await _mediator.Send(command))
                     .Match(Ok, BadRequest);
     }
 }

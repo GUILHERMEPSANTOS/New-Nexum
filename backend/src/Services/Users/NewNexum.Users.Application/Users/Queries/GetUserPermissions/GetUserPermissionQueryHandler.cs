@@ -6,14 +6,11 @@ using NewNexum.WebApi.Core.Authorization;
 
 namespace NewNexum.Users.Application.Users.Queries.GetUserPermissions
 {
-    internal class GetUserPermissionQueryHandler(
-        IUserIdentifierProvider _userIdentifierProvider,
-        IUserRepository _userRepository)
-    : IQueryHandler<GetUserPermissionQuery, PermissionsResponse>
+    internal class GetUserPermissionQueryHandler(IUserRepository _userRepository) : IQueryHandler<GetUserPermissionQuery, PermissionsResponse>
     {
         public async Task<Result<PermissionsResponse>> Handle(GetUserPermissionQuery request, CancellationToken cancellationToken)
         {
-            var identityId = _userIdentifierProvider.GetUserIdentifier();
+            var identityId = request.identityId;
 
             var userPermissions = await _userRepository.GetUserPermission(identityId);
 

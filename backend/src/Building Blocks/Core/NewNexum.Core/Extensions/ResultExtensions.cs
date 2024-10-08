@@ -9,7 +9,7 @@ public static class ResultExtensions
     public static Result<TOut> Map<TIn, TOut>(this Result<TIn> result, Func<TIn, TOut> func)
         => result is not null && result.IsSuccess ? func(result.Value) : Result.Failure<TOut>(result.Error);
 
-    public static async Task<Result<TOut>> Bind<TIn, TOut>(this Result<TIn> result, Func<TIn, Task<TOut>> func)
+    public static async Task<Result<TOut>> Bind<TIn, TOut>(this Result<TIn> result, Func<TIn, Task<Result<TOut>>> func)
         => result is not null && result.IsSuccess ? await func(result.Value) : Result.Failure<TOut>(result.Error);
 
     public static async Task<Result> Bind<TIn>(this Result<TIn> result, Func<TIn, Task<Result>> func) =>

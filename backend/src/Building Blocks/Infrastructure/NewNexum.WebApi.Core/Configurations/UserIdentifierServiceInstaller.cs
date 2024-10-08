@@ -13,7 +13,7 @@ namespace NewNexum.WebApi.Core.Configurations
         public void Install(ref IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<IUserIdentifierProvider, UserIdentifierProvider>();
+            services.AddSingleton<IUserIdentifierProvider, UserIdentifierProvider>();
             services.AddTransient<IClaimsTransformation, CustomClaimsTransformation>();
         }
     }

@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
 using NewNexum.Core.Behaviors;
+using NewNexum.Users.Application.Authorization;
+using NewNexum.WebApi.Core.Authorization;
 using NewNexum.WebApi.Core.Configurations;
 
 namespace NewNexum.Users.Api.Configurations
@@ -15,6 +17,7 @@ namespace NewNexum.Users.Api.Configurations
             });
 
             services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
+            services.AddScoped<IPermissionService, PermissionService>();
         }
     }
 }

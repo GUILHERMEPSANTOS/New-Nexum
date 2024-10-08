@@ -19,8 +19,24 @@ namespace NewNexum.WebApi.Core.Configurations
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-             .AddJwtBearer();
-            
+             .AddJwtBearer(options =>
+             {
+                 options.SaveToken = true;
+                 options.Events = new JwtBearerEvents
+                 {
+                     OnTokenValidated = context =>
+                     {
+                         Console.WriteLine("Token Validated");
+                         return Task.CompletedTask;
+                     },
+                     OnAuthenticationFailed = context =>
+                     {
+                         Console.WriteLine($"Authentication Failed: {context.Exception.Message}");
+                         return Task.CompletedTask;
+                     }
+                 };
+             });
+
             //options =>
             //{
             //    options.MetadataAddress = $"{configuration["Keycloak:server-url"]}/realms/new-nexum-realm/.well-known/openid-configuration";

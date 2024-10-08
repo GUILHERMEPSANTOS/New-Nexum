@@ -16,8 +16,8 @@ namespace NewNexum.WebApi.Core.User
 
         public string GetUserIdentifier()
         {
-            return Context?.User?.Claims?
-                    .FirstOrDefault(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value ?? "";
+            return Context?.User.FindFirstValue(ClaimTypes.NameIdentifier)
+                ?? throw new Exception("User identity is unavailable");
         }
     }
 }
